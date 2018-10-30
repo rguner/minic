@@ -1,0 +1,1 @@
+/bin/wsimport http://ws.euromsg.com/live/post.asmx?wsdl -b binding.xml -d output/EuroMessage -s output/EuroMessage -keep -extension -B-XautoNameResolution -clientjar EuroMessage.jar

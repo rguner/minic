@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>webservice javascript</title>
+    <script language="javascript" type="text/javascript">
+        var callID = 0;
+
+
+        function init(){
+                service.useService("http://www.w3schools.com/webservices/tempconvert.asmx?WSDL", "TempConvert");
+            }
+            
+        function tst(){ 
+        	   iCallID = service.TempConvert.callService("FahrenheitToCelsius",ip1.value); 
+        	}
+        function onmyresult(){ 
+        	   service.innerHTML= "Result : " + event.result.value; 
+        	} 
+
+
+
+    </script>
+</head>
+
+<body onLoad="init();">
+<input type="text" id="ip1" >
+  <button onclick="tst()" ID="Button1">Call Add Web Method</button>
+  <div id="service" style="BEHAVIOR:url(webservice.htc)" onresult="onmyresult();">
+  
+  </div>
+</body>
+
+</html>

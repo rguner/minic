@@ -1,0 +1,4 @@
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        //Date d = new Date(); // saati 00:00:00 yapmak icin.
+        //calendar.setTime(d);        
+        calendar.set(java.util.Calendar.DAY_OF_MONTH, calendar.getActualMinimum(java.util.Calendar.DAY_OF_MONTH));

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://www.bea.com/ns/weblogic/90" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<wl-dispatch-policy>CriticalAppQueue23</wl-dispatch-policy>
+  	<description>mayacore ile ayni thread queue</description>
+    <context-root>testwebapp</context-root>	
+</weblogic-web-app>

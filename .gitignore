@@ -1,0 +1,6 @@
+*/bin/
+*/.settings/
+*/target/
+.classpath
+*/coverage-report/
+*/testLogs/

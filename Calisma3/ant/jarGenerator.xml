@@ -1,0 +1,13 @@
+<project name="jarGenerator" default="build" basedir=".">
+
+	<target name="build">
+		
+		<echo message="Jar islemi basliyor..."/>
+		<jar jarfile="${dest.ear.dir}/ccsiCORE.jar">
+			<fileset dir="${src.core.dir}/source" includes="**/*.properties"/>
+			<fileset dir="${dest.core.dir}"/>
+		</jar>
+	</target>
+
+</project>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>Log Test</servlet-name>
+    <servlet-class>com.turkcell.testwebapp.servlet.LogTest</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>Context Test</servlet-name>
+    <servlet-class>com.turkcell.testwebapp.servlet.ContextTest</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>Cookie Test</servlet-name>
+    <servlet-class>com.turkcell.testwebapp.servlet.CookieTest</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>File Test</servlet-name>
+    <servlet-class>com.turkcell.testwebapp.servlet.FileTest</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>Global Variable Test</servlet-name>
+    <servlet-class>com.turkcell.testwebapp.servlet.GlobalVariableTest</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Log Test</servlet-name>
+    <url-pattern>/logtest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Context Test</servlet-name>
+    <url-pattern>/contexttest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Cookie Test</servlet-name>
+    <url-pattern>/cookietest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>File Test</servlet-name>
+    <url-pattern>/filetest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Global Variable Test</servlet-name>
+    <url-pattern>/globalvariabletest</url-pattern>
+  </servlet-mapping>
+</web-app>

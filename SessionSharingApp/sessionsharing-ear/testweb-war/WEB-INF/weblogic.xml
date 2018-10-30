@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://www.bea.com/ns/weblogic/90" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+    <context-root>testwebapp</context-root>
+    <container-descriptor>
+		<optimistic-serialization>true</optimistic-serialization>
+	</container-descriptor>
+	
+<!-- 	<session-descriptor> -->
+<!-- 			<cookies-enabled>true</cookies-enabled> -->
+<!-- 		<tracking-enabled>true</tracking-enabled> -->
+<!-- 		<cookie-domain>.turkcell.com.tr</cookie-domain> -->
+<!-- 		<cookie-comment>Turkcell SessionSharingAppSession Tracking Cookie</cookie-comment> -->
+<!-- 		<cookie-name>SessionSharingAppSession</cookie-name> -->
+<!-- 		<id-length>10</id-length> -->
+<!-- 		<cookie-max-age-secs>-1</cookie-max-age-secs> -->
+<!-- 		<persistent-store-cookie-name>WLCOOKIE</persistent-store-cookie-name> -->
+<!-- 		<url-rewriting-enabled>true</url-rewriting-enabled> -->
+<!-- 		<invalidation-interval-secs>60</invalidation-interval-secs> -->
+<!-- 		<timeout-secs>1800</timeout-secs> -->
+<!-- 	</session-descriptor> -->
+		
+</weblogic-web-app>
