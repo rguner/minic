@@ -2,6 +2,8 @@ package countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 
+//Deneme
+
 public class LatchMain {
 
 	public static void main(String[] args) {
