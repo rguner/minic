@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import com.asn1c.core.Null;
-
 
 public class NullCalisma {
 	
