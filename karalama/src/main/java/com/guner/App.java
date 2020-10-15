@@ -3,6 +3,7 @@ package com.guner;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Hello world!
@@ -48,6 +49,10 @@ public class App {
             System.out.print("User found in the collection");
             User user = users.get(user1);
         }
+
+
+        System.out.println("Objects Hash1 " + Objects.hash(user1));
+        System.out.println("Objects Hash1_2 " + Objects.hash(user1, user2));
 
     }
 }

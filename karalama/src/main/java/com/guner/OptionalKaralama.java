@@ -1,5 +1,6 @@
 package com.guner;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class OptionalKaralama {
@@ -17,6 +18,7 @@ public class OptionalKaralama {
 
         String name = (String) Optional.ofNullable(null).orElse("john");
         System.out.println(name);
+
 
     }
 }
