@@ -71,8 +71,8 @@ public class PassByValueOrReference {
 	private void execute() {
 		StringBuffer sb1 = new StringBuffer();
 		StringBuffer sb2 = new StringBuffer();
-		sb1.append("execute1 taraf�ndan eklendi.");
-		sb2.append("execute1 taraf�ndan eklendi.");
+		sb1.append("execute1 tarafından eklendi.");
+		sb2.append("execute1 tarafından eklendi.");
 		execute2(sb1, sb2);
 		System.out.println(sb1.toString());
 		System.out.println(sb2.toString());
@@ -80,9 +80,9 @@ public class PassByValueOrReference {
 	}
 
 	private void execute2(StringBuffer sb1, StringBuffer sb2) {
-		sb1.append("execute2 taraf�ndan eklendi.");
+		sb1.append("execute2 tarafından eklendi.");
 		sb2 = new StringBuffer();
-		sb2.append("execute2 taraf�ndan eklendi.");
+		sb2.append("execute2 tarafından eklendi.");
 	}
 
 }
