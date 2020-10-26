@@ -5,12 +5,17 @@ public class ThreadA {
         b.start();
         
         // bu blok varsa problem, aşağıdaki kod wait'de kalır.
+        /*
         try {
 			Thread.currentThread().sleep(100);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+
+         */
+
+
  
         synchronized(b){
             try{
