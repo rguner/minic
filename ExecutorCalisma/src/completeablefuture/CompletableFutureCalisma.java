@@ -27,7 +27,30 @@ public class CompletableFutureCalisma {
         //completableFutureCalisma.allOf();
         //completableFutureCalisma.handlingError();
         //completableFutureCalisma.supplyAsyncThenApplyAsync();
-        completableFutureCalisma.supplyAsyncThenApplies();
+        //completableFutureCalisma.supplyAsyncThenApplies();
+        completableFutureCalisma.supplyAsyncThenAppliesWithExecutors();
+    }
+
+    private void supplyAsyncThenAppliesWithExecutors() {
+
+        ExecutorService executors4 = Executors.newFixedThreadPool(4);
+        ExecutorService executors1 = Executors.newFixedThreadPool(2);
+
+        CompletableFuture completableFuture = CompletableFuture.supplyAsync(() -> "Hello from " + Thread.currentThread().getName(), executors4)
+                .thenApply(s -> s + " World from " + Thread.currentThread().getName())
+                .thenApply(s -> s + " Merhaba " + Thread.currentThread().getName())
+                .thenApplyAsync(s -> s + " Nasılsın " + Thread.currentThread().getName(),executors1)
+                .thenAccept(System.out::println);
+
+
+        try {
+            Object s = completableFuture.get();
+            System.out.println("supplyAsyncThenApplies : " + s);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     private void supplyAsyncThenApplies() {
