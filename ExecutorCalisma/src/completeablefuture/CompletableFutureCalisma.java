@@ -17,7 +17,7 @@ public class CompletableFutureCalisma {
         //completableFutureCalisma.completedFuture();
         //completableFutureCalisma.supplyAsync();
         //completableFutureCalisma.supplyAsyncWithSleep();
-        //completableFutureCalisma.supplyAsyncThenApply();
+        completableFutureCalisma.supplyAsyncThenApply();
         //completableFutureCalisma.supplyAsyncThenAccept();
         //completableFutureCalisma.supplyAsyncThenRun();
         // completableFutureCalisma.supplyAsyncThenCompose();
@@ -26,7 +26,27 @@ public class CompletableFutureCalisma {
         //completableFutureCalisma.supplyAsyncThenAcceptBoth();
         //completableFutureCalisma.allOf();
         //completableFutureCalisma.handlingError();
-        completableFutureCalisma.supplyAsyncThenApplyAsync();
+        //completableFutureCalisma.supplyAsyncThenApplyAsync();
+        completableFutureCalisma.supplyAsyncThenApplies();
+    }
+
+    private void supplyAsyncThenApplies() {
+
+        CompletableFuture completableFuture = CompletableFuture.supplyAsync(() -> "Hello from " + Thread.currentThread().getName())
+                .thenApply(s -> s + " World from " + Thread.currentThread().getName())
+                .thenApply(s -> s + " Merhaba " + Thread.currentThread().getName())
+                .thenApplyAsync(s -> s + " Nasılsın " + Thread.currentThread().getName())
+                .thenAccept(System.out::println);
+
+
+        try {
+            Object s = completableFuture.get();
+            System.out.println("supplyAsyncThenApplies : " + s);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     /*
