@@ -1,8 +1,7 @@
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+
 
 public class DesEncrypter {
 
@@ -10,6 +9,7 @@ public class DesEncrypter {
 
 	Cipher dcipher;
 
+	/*
 	public static void main(String[] argv) throws Exception {
 		SecretKey desKey = KeyGenerator.getInstance("DES").generateKey();
 		String key = "Bar12345Bar12345"; // 128 bit key
@@ -50,5 +50,7 @@ public class DesEncrypter {
 		// Decode using utf-8
 		return new String(utf8, "UTF8");
 	}
+
+	 */
 
 }

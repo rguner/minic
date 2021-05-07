@@ -1,9 +1,6 @@
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import java.security.Key;
 import java.security.MessageDigest;
@@ -13,6 +10,7 @@ public class AESEncrypt {
 
 	private static final String ALGORITHM = "AES";
 
+	/*
 	public static void main(String[] args) {
 		AESEncrypt aesEncrypt = new AESEncrypt();
 		try {
@@ -63,4 +61,6 @@ public class AESEncrypt {
 		SecretKey key = new SecretKeySpec(keyBytes, ALGORITHM);
 		return key;
 	}
+
+	 */
 }
