@@ -20,5 +20,18 @@ public class OptionalKaralama {
         System.out.println(name);
 
 
+        String ad = Optional.ofNullable("ramazan").orElse("");
+        System.out.println(ad);
+
+        User user= new User();
+        user.setName("ramazangüner");
+        // user=null;
+
+        String ad2 = Optional.ofNullable(user.getName()).orElse("");
+        System.out.println(ad2);
+
+
+
+
     }
 }

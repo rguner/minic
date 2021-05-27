@@ -11,6 +11,7 @@ public class InterceptorKontrol {
     public static final String ipAddres1_eksik = "0.50.50.5";
     public static final String ipAddres2 = "61.61.61.61";
     public static final String ipAddres2_eksik = "1.61.61.6";
+    public static final String userAgent = "fjfır fjrıfjerf fjreıfjr frfjrıfr 50.50.50.50 edededeedde";
     public static final Integer COUNT = 900000;
 
     public static void main(String[] args) {
@@ -20,6 +21,8 @@ public class InterceptorKontrol {
         ic.yontem3();
         ic.yontem4();
         ic.yontem5();
+        ic.yontem1ListInList();
+        ic.yontem2ListInList();
     }
 
     private void yontem1() {
@@ -90,7 +93,7 @@ public class InterceptorKontrol {
             unRestrictedCount++;
         }
 
-        System.out.println("SONUC: "+restrictedCount +" "+unRestrictedCount +" süre: "+(System.currentTimeMillis()-start));
+        System.out.println("SONUC: " + restrictedCount + " " + unRestrictedCount + " süre: " + (System.currentTimeMillis() - start));
     }
 
     private void yontem4() {
@@ -120,11 +123,11 @@ public class InterceptorKontrol {
         int unRestrictedCount = 0;
         long start = System.currentTimeMillis();
         for (int i = 0; i < COUNT; i++) {
-            if (restrictedList.contains('5'+ipAddres1_eksik+'0')) {
+            if (restrictedList.contains('5' + ipAddres1_eksik + '0')) {
                 restrictedCount++;
             }
 
-            if (restrictedList.contains('6'+ipAddres2_eksik+'1')) {
+            if (restrictedList.contains('6' + ipAddres2_eksik + '1')) {
             } else {
                 unRestrictedCount++;
             }
@@ -133,6 +136,39 @@ public class InterceptorKontrol {
         System.out.println("SONUC: " + restrictedCount + " " + unRestrictedCount + " süre: " + (System.currentTimeMillis() - start));
     }
 
+
+    private void yontem1ListInList() {
+
+        int restrictedCount = 0;
+        int unRestrictedCount = 0;
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < COUNT; i++) {
+            if (Arrays.stream(restrictedList.split(",")).anyMatch(s -> userAgent.contains(s))) {
+                restrictedCount++;
+            } else {
+                unRestrictedCount++;
+            }
+        }
+
+        System.out.println("SONUC: " + restrictedCount + " " + unRestrictedCount + " süre: " + (System.currentTimeMillis() - start));
+    }
+
+    private void yontem2ListInList() {
+
+        int restrictedCount = 0;
+        int unRestrictedCount = 0;
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < COUNT; i++) {
+            String[] splittedList = restrictedList.split(",");
+            for (int j = 0; j < splittedList.length; j++) {
+                if (userAgent.contains(splittedList[j])) {
+                    restrictedCount++;
+                }
+            }
+        }
+
+        System.out.println("SONUC: " + restrictedCount + " " + unRestrictedCount + " süre: " + (System.currentTimeMillis() - start));
+    }
 
 
 }
