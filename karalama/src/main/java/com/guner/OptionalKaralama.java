@@ -30,6 +30,9 @@ public class OptionalKaralama {
         String ad2 = Optional.ofNullable(user.getName()).orElse("");
         System.out.println(ad2);
 
+        //Optional<Object> b = Optional.of(null);
+        //System.out.println(b);
+
 
 
 
