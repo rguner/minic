@@ -21,6 +21,8 @@ public class FloatCompare {
 		log(Float.toString(myNumber));
 		BigDecimal bd1 = new BigDecimal(myNumber);
 		log(bd1.toString());
+		BigDecimal bd2= BigDecimal.valueOf(myNumber);
+		log(bd2.toString());
 		if (myNumber == 3.146f) {
 			log("eşit 3.146f");
 		}
@@ -56,6 +58,8 @@ public class FloatCompare {
 		log(bd2.toString());
 		BigDecimal bd3 = new BigDecimal(3.146);
 		log(bd3.toString());
+		BigDecimal bd4 = BigDecimal.valueOf(myNumber2);
+		log(bd4.toString());
 		if (myNumber2 == 3.146d) {
 			log("eşit 3.146d");
 		}
