@@ -13,16 +13,23 @@ public class HelloController {
     @RequestMapping("/")
     public String display() {
         String asyncReturn = asyncService.asyncMethod();
-        System.out.println("SONUÇ:" + asyncReturn);
-        return "index";
+        System.out.println("SONUÇ:" + asyncReturn + " in thread : " + Thread.currentThread().getName() );
+        return "index.jsp";
 
     }
 
-    @RequestMapping("/diger")
-    public String diger() {
+    @RequestMapping("/abc")
+    public String abc() {
+        System.out.println("abc");
+        return "index2.jsp";
+
+    }
+
+    @RequestMapping("/async")
+    public String async() {
         String asyncReturn = asyncService.asyncMethod();
-        System.out.println("SONUÇ:" + asyncReturn);
-        return "index";
+        System.out.println("SONUÇ:" + asyncReturn + " in thread : " + Thread.currentThread().getName() );
+        return "index3.jsp";
 
     }
 }

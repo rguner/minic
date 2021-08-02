@@ -20,10 +20,23 @@
 	<mvc:annotation-driven/>
 
 	<task:annotation-driven executor="workManagerTaskExecutor" />
+	<!--
+	<task:annotation-driven executor="managedExecutorService" />
+	-->
 
 	<bean id="workManagerTaskExecutor" name="taskExecutor" class="org.springframework.scheduling.commonj.WorkManagerTaskExecutor">
 		<property name="workManagerName" value="Queue_TURKCELL_WEB_ASYNC" />
 		<property name="resourceRef" value="true" />
 	</bean>
+
+
+	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
+		<property name="jndiName" value="java:comp/DefaultManagedExecutorService" />
+		<property name="resourceRef" value="false" />
+	</bean>
+
+
+
+
 
 </beans>

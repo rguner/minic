@@ -6,15 +6,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class AsyncService {
 
-
-    @Async
+    @Async("managedExecutorService")
     public String asyncMethod() {
 
         try {
+            System.out.println("Async Thread started process: " + Thread.currentThread().getName() );
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("Async Thread finished process : " + Thread.currentThread().getName() );
         return "Ramazan";
     }
 }
