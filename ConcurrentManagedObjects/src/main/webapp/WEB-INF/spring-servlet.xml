@@ -46,7 +46,7 @@
 
 	<!--
 		YOMTEM 2
-		jndi'dan DefaultManagedExecutorService kullanımı
+		application server tanımından kullanım
 	-->
 	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
 		<property name="jndiName" value="concurrent/MyExecutor" />
