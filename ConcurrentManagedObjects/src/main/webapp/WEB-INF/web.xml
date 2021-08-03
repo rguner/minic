@@ -15,6 +15,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+
     <resource-ref>
         <res-ref-name>Queue_TURKCELL_WEB_ASYNC</res-ref-name>
         <res-type>commonj.work.WorkManager</res-type>

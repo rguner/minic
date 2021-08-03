@@ -30,13 +30,14 @@
 	</bean>
 
 
+	<!--
+		YOMTEM 1
+		jndi'dan DefaultManagedExecutorService kullanımı
+	-->
 	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
 		<property name="jndiName" value="java:comp/DefaultManagedExecutorService" />
 		<property name="resourceRef" value="false" />
 	</bean>
-
-
-
 
 
 </beans>
