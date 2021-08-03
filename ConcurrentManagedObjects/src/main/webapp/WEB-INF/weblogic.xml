@@ -30,6 +30,11 @@
         <long-running-priority>10</long-running-priority>
         <max-concurrent-long-running-requests>10</max-concurrent-long-running-requests>
     </wls:managed-executor-service>
+
+    <resource-env-description>
+        <resource-env-ref-name>concurrent/MyExecutor</resource-env-ref-name>
+        <resource-link>MyExecutor</resource-link>
+    </resource-env-description>
     <!--   YOMTEM2   -->
 
 

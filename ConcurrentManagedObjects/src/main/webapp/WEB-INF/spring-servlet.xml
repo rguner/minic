@@ -34,12 +34,26 @@
 		YOMTEM 1
 		jndi'dan DefaultManagedExecutorService kullanımı
 	-->
+	<!--
 	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
 		<property name="jndiName" value="java:comp/DefaultManagedExecutorService" />
 		<property name="resourceRef" value="false" />
 	</bean>
+	-->
 	<!--
 		YOMTEM 1
+	-->
+
+	<!--
+		YOMTEM 2
+		jndi'dan DefaultManagedExecutorService kullanımı
+	-->
+	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
+		<property name="jndiName" value="concurrent/MyExecutor" />
+		<property name="resourceRef" value="true" />
+	</bean>
+	<!--
+		YOMTEM 2
 	-->
 
 
