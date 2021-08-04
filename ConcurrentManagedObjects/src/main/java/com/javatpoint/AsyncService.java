@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 public class AsyncService {
 
     @Async("managedExecutorService")
+    //@Async
     public String asyncMethod() {
 
         try {
