@@ -10,12 +10,12 @@ public class AsyncService {
     public String asyncMethod() {
 
         try {
-            System.out.println("Async Thread started process: " + Thread.currentThread().getName() );
+            System.out.println("Async Thread started process: " + Thread.currentThread().toString() );
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Async Thread finished process : " + Thread.currentThread().getName() );
+        System.out.println("Async Thread finished process : " + Thread.currentThread().toString());
         return "Ramazan";
     }
 }

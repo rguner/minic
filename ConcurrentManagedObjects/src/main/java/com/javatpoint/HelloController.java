@@ -13,7 +13,7 @@ public class HelloController {
     @RequestMapping("/")
     public String display() {
         String asyncReturn = asyncService.asyncMethod();
-        System.out.println("SONUÇ:" + asyncReturn + " in thread : " + Thread.currentThread().getName() );
+        System.out.println("SONUÇ:" + asyncReturn + " in thread : " + Thread.currentThread().toString() );
         return "index.jsp";
 
     }
@@ -28,7 +28,7 @@ public class HelloController {
     @RequestMapping("/async")
     public String async() {
         String asyncReturn = asyncService.asyncMethod();
-        System.out.println("SONUÇ:" + asyncReturn + " in thread : " + Thread.currentThread().getName() );
+        System.out.println("SONUÇ:" + asyncReturn + " in thread : " + Thread.currentThread().toString());
         return "index3.jsp";
 
     }
