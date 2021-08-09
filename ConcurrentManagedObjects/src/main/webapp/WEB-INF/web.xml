@@ -23,11 +23,12 @@
         <res-sharing-scope>Shareable</res-sharing-scope>
     </resource-ref>
 
-    <!--   YOMTEM2   -->
+    <!--   YOMTEM2 - YOMTEM3 -->
     <resource-env-ref>
         <resource-env-ref-name>concurrent/MyExecutor</resource-env-ref-name>
         <resource-env-ref-type>javax.enterprise.concurrent.ManagedExecutorService</resource-env-ref-type>
     </resource-env-ref>
-    <!--   YOMTEM2   -->
+    <!--   YOMTEM2 - YOMTEM3 -->
+
 
 </web-app>

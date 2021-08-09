@@ -31,7 +31,7 @@
 
 
 	<!--
-		YOMTEM 1
+		YOMTEM1
 		jndi'dan DefaultManagedExecutorService kullanımı
 	-->
 	<!--
@@ -41,19 +41,21 @@
 	</bean>
 	-->
 	<!--
-		YOMTEM 1
+		YOMTEM1
 	-->
 
 	<!--
-		YOMTEM 2
+		YOMTEM2 - YOMTEM3
 		application server tanımından kullanım
+		YONTEM2 weblogic.xml'de managed-executor-service tanımı
+		YONTEM3 config.xml'de managed-executor-service tanımı
 	-->
 	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
 		<property name="jndiName" value="concurrent/MyExecutor" />
 		<property name="resourceRef" value="true" />
 	</bean>
 	<!--
-		YOMTEM 2
+		YOMTEM2 - YOMTEM3
 	-->
 
 

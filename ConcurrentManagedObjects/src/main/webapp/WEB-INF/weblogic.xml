@@ -24,6 +24,7 @@
     </wls:jsp-descriptor>
 
     <!--   YOMTEM2   -->
+    <!--
     <wls:managed-executor-service>
         <name>MyExecutor</name>
         <dispatch-policy>MyWorkManager</dispatch-policy>
@@ -35,7 +36,15 @@
         <resource-env-ref-name>concurrent/MyExecutor</resource-env-ref-name>
         <resource-link>MyExecutor</resource-link>
     </resource-env-description>
+    -->
     <!--   YOMTEM2   -->
 
+
+    <!--   YOMTEM3   -->
+    <resource-env-description>
+        <resource-env-ref-name>concurrent/MyExecutor</resource-env-ref-name>
+        <resource-link>ManagedExecutorService_TURKCELL_WEB_ASYNC</resource-link>
+    </resource-env-description>
+    <!--   YOMTEM3   -->
 
 </weblogic-web-app>
