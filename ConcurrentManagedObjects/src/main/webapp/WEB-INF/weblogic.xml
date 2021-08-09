@@ -33,7 +33,7 @@
     </wls:managed-executor-service>
 
     <resource-env-description>
-        <resource-env-ref-name>concurrent/ManegedExecutor</resource-env-ref-name>
+        <resource-env-ref-name>concurrent/ManagedExecutor</resource-env-ref-name>
         <resource-link>MyExecutor</resource-link>
     </resource-env-description>
     -->
