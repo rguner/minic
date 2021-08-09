@@ -51,7 +51,7 @@
 		YONTEM3 config.xml'de managed-executor-service tanımı
 	-->
 	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
-		<property name="jndiName" value="concurrent/ManegedExecutor" />
+		<property name="jndiName" value="concurrent/ManagedExecutor" />
 		<property name="resourceRef" value="true" />
 	</bean>
 	<!--
