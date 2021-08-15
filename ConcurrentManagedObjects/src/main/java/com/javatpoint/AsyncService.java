@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class AsyncService {
 
-    @Async("managedExecutorService")
+    // YOMTEN1 YOMTEN2 YOMTEN3
+    //@Async("managedExecutorService")
     //@Async
+
+    // YOMTEN4
+    @Async("threadPoolTaskExecutor")
     public String asyncMethod() {
 
         try {

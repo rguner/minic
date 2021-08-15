@@ -50,12 +50,32 @@
 		YONTEM2 weblogic.xml'de managed-executor-service tanımı
 		YONTEM3 config.xml'de managed-executor-service tanımı
 	-->
+	<!--
 	<bean id="managedExecutorService" name="managedExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor">
 		<property name="jndiName" value="concurrent/ManagedExecutor" />
 		<property name="resourceRef" value="true" />
 	</bean>
+	-->
 	<!--
 		YOMTEM2 - YOMTEM3
+	-->
+
+	<!--
+		YOMTEM4
+		Managed Thread factory
+	-->
+
+	<bean id="threadPoolTaskExecutor" name="threadPoolExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="threadFactory" ref="managedThreadFactory"/>
+	</bean>
+
+
+	<bean id="managedThreadFactory" name="managedThread" class="org.springframework.scheduling.concurrent.DefaultManagedAwareThreadFactory">
+		<property name="jndiName" value="java:comp/DefaultManagedThreadFactory" />
+		<property name="resourceRef" value="false" />
+	</bean>
+	<!--
+		YOMTEM4
 	-->
 
 

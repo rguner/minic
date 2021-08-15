@@ -41,10 +41,12 @@
 
 
     <!--   YOMTEM3   -->
+    <!--
     <resource-env-description>
         <resource-env-ref-name>concurrent/ManagedExecutor</resource-env-ref-name>
         <resource-link>ManagedExecutorService_TURKCELL_WEB_ASYNC</resource-link>
     </resource-env-description>
+    -->
     <!--   YOMTEM3   -->
 
 </weblogic-web-app>
