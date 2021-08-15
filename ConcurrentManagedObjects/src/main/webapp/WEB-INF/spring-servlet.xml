@@ -65,6 +65,7 @@
 		Managed Thread factory
 	-->
 
+	<!--
 	<bean id="threadPoolTaskExecutor" name="threadPoolExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
 		<property name="threadFactory" ref="managedThreadFactory"/>
 	</bean>
@@ -74,9 +75,25 @@
 		<property name="jndiName" value="java:comp/DefaultManagedThreadFactory" />
 		<property name="resourceRef" value="false" />
 	</bean>
+	-->
 	<!--
 		YOMTEM4
 	-->
+
+	<!-- YOMTEN5
+	-->
+	<bean id="threadPoolTaskExecutor" name="threadPoolExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="threadFactory" ref="managedThreadFactory"/>
+	</bean>
+
+
+	<bean id="managedThreadFactory" name="managedThread" class="org.springframework.scheduling.concurrent.DefaultManagedAwareThreadFactory">
+		<property name="jndiName" value="java:comp/env/ref-managedThreadFactory" />
+		<property name="resourceRef" value="false" />
+	</bean>
+	<!-- YOMTEN5
+	-->
+
 
 
 </beans>

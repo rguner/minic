@@ -32,5 +32,12 @@
     -->
     <!--   YOMTEM2 - YOMTEM3 -->
 
+    <!--   YOMTEM5   -->
+    <resource-env-ref>
+        <resource-env-ref-name>ref-managedThreadFactory</resource-env-ref-name>
+        <resource-env-ref-type>javax.enterprise.concurrent.ManagedThreadFactory</resource-env-ref-type>
+    </resource-env-ref>
+    <!--   YOMTEM5   -->
+
 
 </web-app>

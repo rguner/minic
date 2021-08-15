@@ -10,7 +10,7 @@ public class AsyncService {
     //@Async("managedExecutorService")
     //@Async
 
-    // YOMTEN4
+    // YOMTEN4 YOMTEN5
     @Async("threadPoolTaskExecutor")
     public String asyncMethod() {
 

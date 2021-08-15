@@ -49,4 +49,18 @@
     -->
     <!--   YOMTEM3   -->
 
+    <!--   YOMTEM5   -->
+    <wls:managed-thread-factory>
+        <name>managedThreadFactory</name>
+        <priority>3</priority>
+        <max-concurrent-new-threads>20</max-concurrent-new-threads>
+    </wls:managed-thread-factory>
+
+    <resource-env-description>
+        <resource-env-ref-name>ref-managedThreadFactory</resource-env-ref-name>
+        <resource-link>managedThreadFactory</resource-link>
+    </resource-env-description>
+    <!--   YOMTEM5   -->
+
+
 </weblogic-web-app>
