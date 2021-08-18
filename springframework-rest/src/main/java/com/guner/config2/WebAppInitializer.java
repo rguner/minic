@@ -36,7 +36,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
         DispatcherServlet dv =
                 new DispatcherServlet(new GenericWebApplicationContext());
 
-        ServletRegistration.Dynamic appServlet = servletContext.addServlet("test-mvc", dv);
+        ServletRegistration.Dynamic appServlet = servletContext.addServlet("springframework-rest-mvc", dv);
         appServlet.setLoadOnStartup(1);
         appServlet.addMapping("/*");
 
