@@ -1,10 +1,11 @@
-package com.guner.config;
+package com.guner.config2;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.guner.interceptor.CommonInterceptor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -18,7 +19,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@EnableWebMvc
 public class MvcConfiguration implements WebMvcConfigurer {
 
     @Override

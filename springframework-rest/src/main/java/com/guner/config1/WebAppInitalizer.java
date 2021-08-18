@@ -1,4 +1,4 @@
-package com.guner.config;
+package com.guner.config1;
 
 /*
 INITILALIZE YOMTEM1
