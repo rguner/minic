@@ -27,6 +27,7 @@ public class CommonInterceptor implements HandlerInterceptor {
         logStrBuilder.append("Scheme: " + request.getScheme()
                 + ", Request: " + request.getMethod()
                 + ", Path: " + request.getContextPath() + request.getServletPath()
+                + ", Uri:" + request.getRequestURI()
                 + ", Response Time: " + executeTime);
 
         System.out.println(logStrBuilder.toString());

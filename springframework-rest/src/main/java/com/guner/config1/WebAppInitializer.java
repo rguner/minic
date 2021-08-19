@@ -12,7 +12,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.guner")
-public class WebAppInitalizer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 
     @Override
@@ -32,5 +32,5 @@ public class WebAppInitalizer extends AbstractAnnotationConfigDispatcherServletI
 }
 */
 
-public class WebAppInitalizer {
+public class WebAppInitializer {
 }

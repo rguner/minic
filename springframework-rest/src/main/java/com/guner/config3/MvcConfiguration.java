@@ -1,7 +1,4 @@
-package com.guner.config2;
-
-/*
-INITILALIZE YOMTEM2
+package com.guner.config3;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -13,8 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.method.HandlerTypePredicate;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -24,6 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
+@EnableWebMvc
+@ComponentScan("com.guner")
 public class MvcConfiguration implements WebMvcConfigurer {
 
     @Override
@@ -86,7 +83,4 @@ public class MvcConfiguration implements WebMvcConfigurer {
 
         return null;
     }
-}
-*/
-public class MvcConfiguration {
 }
