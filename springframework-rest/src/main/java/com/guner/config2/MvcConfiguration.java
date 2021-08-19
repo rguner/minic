@@ -85,11 +85,14 @@ public class MvcConfiguration implements WebMvcConfigurer {
         return null;
     }
 
+    /*
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         configurer.addPathPrefix("/",
                 HandlerTypePredicate.forAnnotation(RestController.class));
     }
+
+     */
 
 
 }
