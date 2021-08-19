@@ -4,6 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -24,21 +25,17 @@ public class WebAppInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
 
-        AnnotationConfigWebApplicationContext root =
-                new AnnotationConfigWebApplicationContext();
-        root.register(MvcConfiguration.class);
-
-        root.refresh();
-        root.setServletContext(servletContext);
-
-        servletContext.addListener(new ContextLoaderListener(root));
-
-        DispatcherServlet dv =
-                new DispatcherServlet(new GenericWebApplicationContext());
-
-        ServletRegistration.Dynamic appServlet = servletContext.addServlet("springframework-rest-mvc", dv);
-        appServlet.setLoadOnStartup(1);
-        appServlet.addMapping("/*");
-
+        WebApplicationContext context = getContext();
+        servletContext.addListener(new ContextLoaderListener(context));
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
+        dispatcher.setLoadOnStartup(1);
+        dispatcher.addMapping("/*");
     }
+
+    private AnnotationConfigWebApplicationContext getContext() {
+        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        context.setConfigLocation("com.guner.config2.MvcConfiguration");
+        return context;
+    }
+
 }
