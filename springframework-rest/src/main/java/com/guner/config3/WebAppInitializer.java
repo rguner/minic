@@ -26,9 +26,12 @@ public class WebAppInitializer extends AbstractDispatcherServletInitializer {
 
     @Override
     protected WebApplicationContext createRootApplicationContext() {
+        // rootApplicationContext null olabilir..
+        // return null;
         AnnotationConfigWebApplicationContext annotationConfigWebApplicationContext
                 = new AnnotationConfigWebApplicationContext();
-        annotationConfigWebApplicationContext.register(WebAppInitializer.class);
+        annotationConfigWebApplicationContext.register(MvcConfiguration.class);
         return annotationConfigWebApplicationContext;
     }
+
 }
