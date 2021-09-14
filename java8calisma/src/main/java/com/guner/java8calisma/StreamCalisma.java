@@ -1,5 +1,7 @@
 package com.guner.java8calisma;
 
+import com.guner.java8calisma.model.EnumExampleType;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -21,6 +23,7 @@ public class StreamCalisma {
         s.execute9();
         s.execute10();
         s.execute11();
+        s.execute12();
     }
 
     private void execute1() {
@@ -156,6 +159,19 @@ public class StreamCalisma {
 
         // eager
         stream2.forEach(System.out::println); // Fakat bu hazırlanan Stream nesnesi, yukarıdaki gibi bir Eager operasyonla karşılaşırsa, önceki zincirlerde biriken Lazy işlemleri de harekete geçirecektir. Yani bu işlem, yukarıdak işlemleri tetikler
+    }
+
+    private void execute12() {
+
+        System.out.println("---------------------------------------------------------------------------------------");
+
+        List<EnumExampleType> names = Arrays.asList(EnumExampleType.CAMPAIGN, EnumExampleType.SERVICE, EnumExampleType.DEVICE);
+
+
+        String collect = names.stream().map(String::valueOf).collect(Collectors.joining("|"));
+
+        System.out.println(collect);
+
     }
 }
 
