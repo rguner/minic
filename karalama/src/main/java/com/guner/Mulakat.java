@@ -1,8 +1,7 @@
 package com.guner;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Mulakat {
 
@@ -10,7 +9,8 @@ public class Mulakat {
         Mulakat m = new Mulakat();
         m.integerCompare();
         m.stringCompare();
-        m.removeItemInIterator();
+        //m.removeItemInIterator();
+        m.streamMap();
     }
 
 
@@ -62,6 +62,17 @@ public class Mulakat {
         System.out.println("Sevval --> " + (s5 == s6));
         System.out.println("Sevval Equals--> " + (s5.equals(s6)));
 
+    }
+
+    private void streamMap() {
+
+        Integer integer = 20;
+        String string = "stringvalue";
+        HashMap<String, String> hashMap = new HashMap();
+        hashMap.put("key", "value");
+        List < Object > list = Arrays.asList("Sonuç", new Integer(20), string, hashMap);
+        String resultString = list.stream().map(String::valueOf).collect(Collectors.joining("|"));
+        System.out.println(resultString);
     }
 
 }
