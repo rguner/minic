@@ -9,8 +9,8 @@ public class Mulakat {
         Mulakat m = new Mulakat();
         m.integerCompare();
         m.stringCompare();
-        m.streamMap();
         m.streamFilter();
+        m.streamMap();
         m.callFutbolcu();
     }
 
@@ -45,19 +45,6 @@ public class Mulakat {
     }
 
     // SORU1
-    private void streamMap() {
-
-        Integer integer = 20;
-        String string = "stringvalue";
-        HashMap<String, String> hashMap = new HashMap();
-        hashMap.put("key", "value");
-        List<Object> list = Arrays.asList("Sonuç", 20, string, hashMap);
-        String resultString = list.stream().map(String::valueOf).collect(Collectors.joining("|"));
-        System.out.println(resultString);
-        System.out.println("---------------------------------------------------------------------------------------");
-    }
-
-    // SORU2
     public class Person {
 
         private String name;
@@ -91,6 +78,8 @@ public class Mulakat {
     }
 
     private void streamFilter() {
+        System.out.println("SORU1----------------------------------------------------------------------------------");
+
         List<Person> persons = Arrays.asList(
                 new Person("Ahmet", 30),
                 new Person("Mehmet", 20),
@@ -113,6 +102,22 @@ public class Mulakat {
         System.out.println("---------------------------------------------------------------------------------------");
 
     }
+
+    // SORU2
+    private void streamMap() {
+
+        System.out.println("SORU2----------------------------------------------------------------------------------");
+        String string = "stringvalue";
+        HashMap<String, String> hashMap = new HashMap();
+        hashMap.put("key", "value");
+        Optional<String> optional = Optional.ofNullable("optionalstring");
+        List<Object> list = Arrays.asList("Sonuç", 20, string, hashMap, optional.orElseGet(()->"elseget"));
+        String resultString = list.stream().map(String::valueOf).collect(Collectors.joining("|"));
+        System.out.println(resultString);
+        System.out.println("---------------------------------------------------------------------------------------");
+    }
+
+
 
 
     // SORU3
@@ -145,6 +150,7 @@ public class Mulakat {
     }
 
     private void callFutbolcu() {
+        System.out.println("SORU3----------------------------------------------------------------------------------");
         Futbolcu futbolcuMetin = new Futbolcu("Metin");
         method1(futbolcuMetin);
         System.out.println(futbolcuMetin);
