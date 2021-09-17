@@ -11,7 +11,7 @@ public class Mulakat {
         m.stringCompare();
         m.streamMap();
         m.streamFilter();
-        m.callFoo();
+        m.callFutbolcu();
     }
 
     private void integerCompare() {
@@ -144,7 +144,7 @@ public class Mulakat {
         futbolcu.setName("Feyyaz");
     }
 
-    private void callFoo() {
+    private void callFutbolcu() {
         Futbolcu futbolcuMetin = new Futbolcu("Metin");
         method1(futbolcuMetin);
         System.out.println(futbolcuMetin);
