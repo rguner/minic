@@ -51,7 +51,7 @@ public class Mulakat {
         String string = "stringvalue";
         HashMap<String, String> hashMap = new HashMap();
         hashMap.put("key", "value");
-        List<Object> list = Arrays.asList("Sonuç", new Integer(20), string, hashMap);
+        List<Object> list = Arrays.asList("Sonuç", 20, string, hashMap);
         String resultString = list.stream().map(String::valueOf).collect(Collectors.joining("|"));
         System.out.println(resultString);
         System.out.println("---------------------------------------------------------------------------------------");
