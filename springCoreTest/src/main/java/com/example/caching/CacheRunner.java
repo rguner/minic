@@ -1,5 +1,6 @@
 package com.example.caching;
 
+import com.example.caching.config.CacheKeyGenerator;
 import com.example.caching.ecom.ProductPricesDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,20 @@ public class CacheRunner  {
 
 	@Autowired
 	BookRepository simpleBookRepository;
+
+	@Autowired
+	CacheKeyGenerator cacheKeyGenerator;
+
+	public void keyGenerate() {
+		for (long l= 1020000L;l<1040000;l++) {
+			List<Long> idsJ = Arrays.asList(l);
+			ProductPricesDto productPricesDtoJ = new ProductPricesDto();
+			productPricesDtoJ.setProductModelIdList(idsJ);
+			int cacheKey= cacheKeyGenerator.createCacheKey(productPricesDtoJ);
+			System.out.println(l + " --- " +  cacheKey);
+
+		}
+	}
 
 
 	public void run() {
