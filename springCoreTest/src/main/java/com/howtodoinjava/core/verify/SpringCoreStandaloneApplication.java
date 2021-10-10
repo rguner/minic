@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-public class VerifySpringCoreFeature 
+public class SpringCoreStandaloneApplication
 {
 	public static void main(String[] args) 
 	{
@@ -27,7 +27,7 @@ public class VerifySpringCoreFeature
 
 		CacheRunner cacheRunner = (CacheRunner) context.getBean("cacheRunner");
 		cacheRunner.keyGenerate();
-		// cacheRunner.run();
+		//cacheRunner.run();
 
 	}
 }

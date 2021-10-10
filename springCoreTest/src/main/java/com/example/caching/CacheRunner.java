@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CacheRunner  {
@@ -20,14 +22,52 @@ public class CacheRunner  {
 	CacheKeyGenerator cacheKeyGenerator;
 
 	public void keyGenerate() {
-		for (long l= 1020000L;l<1040000;l++) {
+		Set<Integer> cacheKeySet= new HashSet<>();
+		for (long l= 1010000L;l<1040000;l++) {
 			List<Long> idsJ = Arrays.asList(l);
 			ProductPricesDto productPricesDtoJ = new ProductPricesDto();
 			productPricesDtoJ.setProductModelIdList(idsJ);
-			int cacheKey= cacheKeyGenerator.createCacheKey(productPricesDtoJ);
-			System.out.println(l + " --- " +  cacheKey);
-
+			//int cacheKey= cacheKeyGenerator.createCacheKey(productPricesDtoJ);
+			Object msisdn = "5322100210";
+			Integer cacheKey= (Integer) cacheKeyGenerator.generate(this, this.getClass().getEnclosingMethod(), true, msisdn, productPricesDtoJ);
+			// System.out.println(l + " --- " +  cacheKey);
+			cacheKeySet.add(cacheKey);
 		}
+		System.out.println("SIZE -- " + cacheKeySet.size());
+
+		for (long l= 1010000L;l<1040000;l++) {
+			List<Long> idsJ = Arrays.asList(l);
+			ProductPricesDto productPricesDtoJ = new ProductPricesDto();
+			productPricesDtoJ.setProductModelIdList(idsJ);
+			//int cacheKey= cacheKeyGenerator.createCacheKey(productPricesDtoJ);
+			Object msisdn = "5322100234";
+			Integer cacheKey= (Integer) cacheKeyGenerator.generate(this, this.getClass().getEnclosingMethod(), true, msisdn, productPricesDtoJ);
+			// System.out.println(l + " --- " +  cacheKey);
+			cacheKeySet.add(cacheKey);
+		}
+		System.out.println("SIZE -- " + cacheKeySet.size());
+		for (long l= 1010000L;l<1040000;l++) {
+			List<Long> idsJ = Arrays.asList(l);
+			ProductPricesDto productPricesDtoJ = new ProductPricesDto();
+			productPricesDtoJ.setProductModelIdList(idsJ);
+			//int cacheKey= cacheKeyGenerator.createCacheKey(productPricesDtoJ);
+			Object msisdn = null;
+			Integer cacheKey= (Integer) cacheKeyGenerator.generate(this, this.getClass().getEnclosingMethod(), true, msisdn, productPricesDtoJ);
+			// System.out.println(l + " --- " +  cacheKey);
+			cacheKeySet.add(cacheKey);
+		}
+		System.out.println("SIZE -- " + cacheKeySet.size());
+		for (long l= 1010000L;l<1040000;l++) {
+			List<Long> idsJ = Arrays.asList(l);
+			ProductPricesDto productPricesDtoJ = new ProductPricesDto();
+			productPricesDtoJ.setProductModelIdList(idsJ);
+			//int cacheKey= cacheKeyGenerator.createCacheKey(productPricesDtoJ);
+			Object msisdn = null;
+			Integer cacheKey= (Integer) cacheKeyGenerator.generate(this, this.getClass().getEnclosingMethod(), true, msisdn, productPricesDtoJ);
+			// System.out.println(l + " --- " +  cacheKey);
+			cacheKeySet.add(cacheKey);
+		}
+		System.out.println("SIZE -- " + cacheKeySet.size());
 	}
 
 

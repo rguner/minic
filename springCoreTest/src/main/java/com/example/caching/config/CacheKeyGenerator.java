@@ -27,7 +27,7 @@ public class CacheKeyGenerator implements KeyGenerator {
 			hashCode = 31 * hashCode + createCacheKey(object);
 		}
 
-		System.out.println("HASCODE: " + Integer.valueOf(hashCode));
+		//System.out.println("HASCODE: " + Integer.valueOf(hashCode));
 		return Integer.valueOf(hashCode);
 	}
 
