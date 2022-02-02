@@ -2,13 +2,16 @@ package com.guner.java8calisma;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class ForEachDeneme {
 
 	public static void main(String[] args) {
 		ForEachDeneme f = new ForEachDeneme();
 		f.execute();
+		f.execute2();
 	}
+
 
 	private void execute() {
 		List<String> items = new ArrayList<>();
@@ -39,6 +42,16 @@ public class ForEachDeneme {
 				.filter(s -> s.contains("B"))
 				.forEach(System.out::println);
 
+	}
+
+	private void execute2() {
+		IntStream.range(0,10).forEach(i-> {
+			if (i==5) {
+				return;
+			} else {
+				System.out.print(i + " ");
+			}
+		});
 	}
 
 }
