@@ -29,6 +29,10 @@ public class MapFlatMap {
 
         System.out.println(listOfAllIntegers);
 
+        /*
+        Stream<Integer> a = listOfLists.stream()
+                .flatMap(x -> x.stream());
+         */
     }
 
     private void flatMap1() {

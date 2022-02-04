@@ -108,7 +108,7 @@ public class StreamCalisma {
         int result = IntStream
                 .of(1, 2, 3, 4, 5)
                 .reduce(0, (once, sonra) -> {
-                    System.out.format("%d - %d %n", once, sonra);
+                    System.out.format("%d , %d  --> %d%n", once, sonra, (once + sonra));
                     return once + sonra;
                 });
         System.out.println(result);
