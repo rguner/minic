@@ -33,7 +33,7 @@ class BinaryTreeTraversalStack
             /* Current must be NULL at this point */
             curr = s.pop();
  
-            System.out.print(curr.key + " ");
+            System.out.print(curr.data + " ");
  
             /* we have visited the node and its
                left subtree.  Now, it's right

@@ -1,12 +1,12 @@
 package com.guner.datastructure.binarytree;
 
 class Node {
-    int key;
+    int data;
     Node left, right;
  
     public Node(int item)
     {
-        key = item;
+        data = item;
         left = right = null;
     }
 }

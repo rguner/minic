@@ -21,7 +21,7 @@ class BinaryTreeTraversalRecursive {
         printPostorder(node.right);
 
         // now deal with the node
-        System.out.print(node.key + " ");
+        System.out.print(node.data + " ");
     }
 
     /* Given a binary tree, print its nodes in inorder*/
@@ -33,7 +33,7 @@ class BinaryTreeTraversalRecursive {
         printInorder(node.left);
 
         /* then print the data of node */
-        System.out.print(node.key + " ");
+        System.out.print(node.data + " ");
 
         /* now recur on right child */
         printInorder(node.right);
@@ -45,7 +45,7 @@ class BinaryTreeTraversalRecursive {
             return;
 
         /* first print data of node */
-        System.out.print(node.key + " ");
+        System.out.print(node.data + " ");
 
         /* then recur on left subtree */
         printPreorder(node.left);
