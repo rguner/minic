@@ -22,6 +22,7 @@ public class StreamCalisma {
         s.execute8();
         s.execute9();
         s.execute10();
+        s.execute10_1();
         s.execute11();
         s.execute12();
     }
@@ -132,6 +133,18 @@ public class StreamCalisma {
                 .filter(Objects::nonNull) // null değilse
                 .filter(n -> n > 0) // pozitif sayı ise
                 .sorted() // sırala
+                .forEach(System.out::println); // çıktıla
+    }
+
+    private void execute10_1() {
+        System.out.println("---------------------------------------------------------------------------------------execute10_1 ");
+
+        List<Integer> ints = Arrays.asList(1, 5, 3, 7, 11, 9, 15, 13);
+
+        ints.stream()
+                .filter(Objects::nonNull) // null değilse
+                .filter(n -> n > 0) // pozitif sayı ise
+                .sorted((a,b)-> {if (a>b) return 1; else if (a<b) return -1; else return 0;})
                 .forEach(System.out::println); // çıktıla
     }
 
