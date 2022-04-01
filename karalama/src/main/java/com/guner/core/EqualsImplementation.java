@@ -12,6 +12,7 @@ class ComplexObject {
         this.b = b;
     }
 
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -24,6 +25,12 @@ class ComplexObject {
     @Override
     public int hashCode() {
         return Objects.hash(a, b);
+    }
+     */
+
+    /*
+    public int hashCode() {
+        return 100;
     }
      */
 
@@ -51,9 +58,9 @@ public class EqualsImplementation {
         ComplexObject c1 = new ComplexObject(100, 200);
         ComplexObject c2 = new ComplexObject(100, 300);
         ComplexObject c3 = new ComplexObject(100, 200);
-        System.out.println("c1 hashCode : " + c1.hashCode());
-        System.out.println("c2 hashCode : " + c2.hashCode());
-        System.out.println("c3 hashCode : " + c3.hashCode());
+        System.out.println("c1 " + c1.toString() + " hashCode : " + c1.hashCode());
+        System.out.println("c2 " + c2.toString() + " hashCode : " + c2.hashCode());
+        System.out.println("c3 " + c3.toString() + " hashCode : " + c3.hashCode());
         System.out.println("c1 hashCodeModified : " + c1.hashCodeModified());
         System.out.println("c1 hashCodeModified : " + c2.hashCodeModified());
         System.out.println("c3 hashCodeModified : " + c3.hashCodeModified());
@@ -62,9 +69,11 @@ public class EqualsImplementation {
     private void equalsDeneme() {
         ComplexObject c1 = new ComplexObject(100, 200);
         ComplexObject c2 = new ComplexObject(100, 300);
-        ComplexObject c3 = new ComplexObject(800, 900);
+        ComplexObject c3 = new ComplexObject(100, 200);
+        ComplexObject c4 = new ComplexObject(400, 600);
 
         System.out.println("c1 c2 Eşit --> " + c1.equals(c2));
         System.out.println("c1 c3 Eşit --> " + c1.equals(c3));
+        System.out.println("c1 c4 Eşit --> " + c1.equals(c3));
     }
 }
