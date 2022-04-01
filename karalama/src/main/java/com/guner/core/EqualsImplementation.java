@@ -74,6 +74,6 @@ public class EqualsImplementation {
 
         System.out.println("c1 c2 Eşit --> " + c1.equals(c2));
         System.out.println("c1 c3 Eşit --> " + c1.equals(c3));
-        System.out.println("c1 c4 Eşit --> " + c1.equals(c3));
+        System.out.println("c1 c4 Eşit --> " + c1.equals(c4));
     }
 }
