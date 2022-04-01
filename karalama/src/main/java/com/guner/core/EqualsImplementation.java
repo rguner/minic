@@ -58,12 +58,18 @@ public class EqualsImplementation {
         ComplexObject c1 = new ComplexObject(100, 200);
         ComplexObject c2 = new ComplexObject(100, 300);
         ComplexObject c3 = new ComplexObject(100, 200);
+        ComplexObject c4 = new ComplexObject(400, 600);
+        ComplexObject c5=c1;
         System.out.println("c1 " + c1.toString() + " hashCode : " + c1.hashCode());
         System.out.println("c2 " + c2.toString() + " hashCode : " + c2.hashCode());
         System.out.println("c3 " + c3.toString() + " hashCode : " + c3.hashCode());
+        System.out.println("c4 " + c4.toString() + " hashCode : " + c4.hashCode());
+        System.out.println("c5 " + c5.toString() + " hashCode : " + c5.hashCode());
         System.out.println("c1 hashCodeModified : " + c1.hashCodeModified());
         System.out.println("c1 hashCodeModified : " + c2.hashCodeModified());
         System.out.println("c3 hashCodeModified : " + c3.hashCodeModified());
+        System.out.println("c4 hashCodeModified : " + c4.hashCodeModified());
+        System.out.println("c5 hashCodeModified : " + c5.hashCodeModified());
     }
 
     private void equalsDeneme() {
@@ -71,9 +77,11 @@ public class EqualsImplementation {
         ComplexObject c2 = new ComplexObject(100, 300);
         ComplexObject c3 = new ComplexObject(100, 200);
         ComplexObject c4 = new ComplexObject(400, 600);
+        ComplexObject c5=c1;
 
         System.out.println("c1 c2 Eşit --> " + c1.equals(c2));
         System.out.println("c1 c3 Eşit --> " + c1.equals(c3));
         System.out.println("c1 c4 Eşit --> " + c1.equals(c4));
+        System.out.println("c1 c5 Eşit --> " + c1.equals(c5));
     }
 }
