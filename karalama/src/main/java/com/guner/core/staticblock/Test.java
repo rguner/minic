@@ -31,5 +31,10 @@ class GFG {
 		// block is called because i is being accessed in
 		// following statement.
 		System.out.println(Test.i);
+		System.out.println(Test.i);
+		System.out.println(Test.i);
+		Test t= new Test();
+		System.out.println(t.i);
+
 	}
 }
