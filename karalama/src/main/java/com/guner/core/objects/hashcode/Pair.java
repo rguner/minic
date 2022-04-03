@@ -24,6 +24,11 @@ class Pair<K, V>
 		(value == null ? 0 : value.hashCode()); */
 	}
 
+	public int hashCode2()
+	{
+		return Objects.hash(key, value);
+	}
+
 }
 
 class GFG
@@ -37,10 +42,16 @@ class GFG
 		Pair<String, String> p3 = new Pair<String, String>(null, null);
 		Pair<String, String> p4 =
 				new Pair<String, String>("GFG", "geeksforgeeks.org");
-		
+
+		System.out.println("HashCode---------------------");
 		System.out.println(p1.hashCode());
 		System.out.println(p2.hashCode());
 		System.out.println(p3.hashCode());
 		System.out.println(p4.hashCode());
+		System.out.println("HashCode2--------------------");
+		System.out.println(p1.hashCode2());
+		System.out.println(p2.hashCode2());
+		System.out.println(p3.hashCode2());
+		System.out.println(p4.hashCode2());
 	}
 }
