@@ -26,7 +26,7 @@ class GFG {
 	// Main driver method
 	public static void main(String args[])
 	{
-
+		System.out.println("Uygulama basladi");
 		// Although we don't have an object of Test, static
 		// block is called because i is being accessed in
 		// following statement.
