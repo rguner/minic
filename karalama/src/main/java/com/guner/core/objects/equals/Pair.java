@@ -38,8 +38,10 @@ class GFG
 		Pair<String, String> p3 =
 				new Pair<String, String>("GFG", "www.geeksforgeeks.org");
 		
-		System.out.println(p1.equals(p2));
-		System.out.println(p2.equals(p3));
-		
+		System.out.println("p1 equals p2 " + p1.equals(p2));
+		System.out.println("p2 equals p3 " + p2.equals(p3));
+		System.out.println("p1 == p2 " + (p1==p2) );
+		System.out.println("p2 == p3 " + (p2==p3) );
+
 	}
 }
