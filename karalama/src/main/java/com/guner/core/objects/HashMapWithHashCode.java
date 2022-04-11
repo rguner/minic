@@ -57,18 +57,22 @@ public class HashMapWithHashCode {
         Person person2 = new Person(200,"Ceyhan","Güner");
         Person person3 = new Person(300,"Şevval","Güner");
         Person person4 = new Person(400,"Ömer Mete","Güner");
-        Person person5 = new Person(100,"Ramazan","Güner");
+        Person person5 = new Person(100,"Ramazan5","Güner5");
+        Person person6 = new Person(100,"Ramazan","Güner");
 
         Map<Person, String> list = new HashMap<>();
         list.put(person1, "Ramazan");
+        list.put(person1, "Ramazan2");
         list.put(person2, "Ceyhan");
         list.put(person3, "Şevval");
         list.put(person4, "Ömer Mete");
-        list.put(person5, "Ramazan");
-        list.put(person5, "Ramazan2");
+        list.put(person5, "Ramazan5");
+        list.put(person5, "Ramazan6");
+        list.put(person6, "Ramazan7");
 
         System.out.println("List Size (Person) : " + list.size());
         System.out.println("list.get(person5) " + list.get(person5));
+        System.out.println("list.get(person6) " + list.get(person6));
     }
 
     private void putDenemeWithPersonHashCode() {
@@ -77,17 +81,21 @@ public class HashMapWithHashCode {
         PersonHashCode person2 = new PersonHashCode(200,"Ceyhan","Güner");
         PersonHashCode person3 = new PersonHashCode(300,"Şevval","Güner");
         PersonHashCode person4 = new PersonHashCode(400,"Ömer Mete","Güner");
-        PersonHashCode person5 = new PersonHashCode(100,"Ramazan","Güner");
+        PersonHashCode person5 = new PersonHashCode(100,"Ramazan5","Güner5");
+        PersonHashCode person6 = new PersonHashCode(100,"Ramazan","Güner");
 
         Map<PersonHashCode, String> list = new HashMap<>();
         list.put(person1, "Ramazan");
+        list.put(person1, "Ramazan2");
         list.put(person2, "Ceyhan");
         list.put(person3, "Şevval");
         list.put(person4, "Ömer Mete");
-        list.put(person5, "Ramazan");
-        list.put(person5, "Ramazan2");
+        list.put(person5, "Ramazan5");
+        list.put(person5, "Ramazan6");
+        list.put(person6, "Ramazan7");
 
         System.out.println("List Size (PersonHashCode) : " + list.size());
         System.out.println("list.get(person5) " + list.get(person5));
+        System.out.println("list.get(person6) " + list.get(person6));
     }
 }
