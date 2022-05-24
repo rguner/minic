@@ -29,6 +29,7 @@ class SetsExample {
         // Duplicate removed
         hset.add("geeks");
         hset.add("for");
+        hset.add(null);
 
         System.out.println("hashSet1 ------------------------");
 
@@ -87,6 +88,9 @@ class SetsExample {
 
         // Duplicate elements being removed
         tset.add("geeks");
+
+        // tset.add(null); Exception in thread "main" java.lang.NullPointerException
+        //	at java.base/java.util.TreeMap.put(TreeMap.java:561)
 
         System.out.println("treeSet1 ------------------------");
 
