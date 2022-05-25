@@ -1,5 +1,8 @@
 package com.guner.java8calisma;
 
+import java.sql.ClientInfoStatus;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class OptinalCalisma {
@@ -74,6 +77,20 @@ public class OptinalCalisma {
 
     private void execute7() {
         System.out.println("----------------------");
+        /* refactoring with optional
+
+        boolean isInRange = false;
+
+        if (modem != null && modem.getPrice() != null
+                && (modem.getPrice() >= 10
+                && modem.getPrice() <= 15)) {
+
+            isInRange = true;
+        }
+        return isInRange;
+
+        */
+
         Modem modem = new Modem(102D);
         boolean isPresent = Optional.ofNullable(modem)
                 .map(Modem::getPrice)
@@ -85,10 +102,28 @@ public class OptinalCalisma {
 
     private void execute8() {
         System.out.println("----------------------");
+        List<String> companyNames = Arrays.asList(
+                "paypal", "oracle", "", "microsoft", "", "apple");
+        Optional<List<String>> listOptional = Optional.of(companyNames);
+
+        int size = listOptional
+                .map(List::size)
+                .orElse(0);
+        System.out.println("List size : " + size);
     }
 
     private void execute9() {
         System.out.println("----------------------");
+        Optional<String> passOpt = Optional.of(" password");
+        boolean correctPassword = passOpt.filter(
+                pass -> pass.equals("password")).isPresent();
+        System.out.println("is Correct Password : " + correctPassword);
+
+        correctPassword = passOpt
+                .map(String::trim)
+                .filter(pass -> pass.equals("password"))
+                .isPresent();
+        System.out.println("is Correct Password : " + correctPassword);
     }
 
     public class Modem {
