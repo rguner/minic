@@ -1,9 +1,8 @@
 package com.guner.java8calisma;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CompletableFutureCalisma {
     public static void main(String[] args) {
@@ -15,8 +14,9 @@ public class CompletableFutureCalisma {
         completableFutureCalisma.execute5();
         completableFutureCalisma.execute6();
         completableFutureCalisma.execute7();
+        completableFutureCalisma.execute8();
+        completableFutureCalisma.runParallel();
     }
-
 
     private void execute1() {
         Future<String> stringFuture = calculate1();
@@ -33,12 +33,24 @@ public class CompletableFutureCalisma {
     private Future<String> calculate1() {
         CompletableFuture<String> completableFuture = new CompletableFuture<>();
 
-        Executors.newCachedThreadPool().submit(() -> {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.submit(() -> {
             Thread.sleep(500);
             completableFuture.complete("Hello1");
             return null;
         });
+
+        executorService.shutdown();
+        try {
+            if (!executorService.awaitTermination(800, TimeUnit.MILLISECONDS)) {
+                executorService.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            executorService.shutdownNow();
+        }
+
         return completableFuture;
+
     }
 
     private void execute2() {
@@ -127,4 +139,47 @@ public class CompletableFutureCalisma {
                 .thenCompose(s -> CompletableFuture.supplyAsync(() -> s + " World7"))
                 .thenAccept(s -> System.out.println("Computation finished 7. Sonuç: " + s));
     }
+
+
+    private void execute8() {
+        CompletableFuture<String> completableFuture
+                = CompletableFuture.supplyAsync(() -> "Hello8")
+                .thenCombine(CompletableFuture.supplyAsync(
+                        () -> " World8"), (s1, s2) -> s1 + s2);
+        try {
+            String result = completableFuture.get();
+            System.out.println("Sonuç: " + result);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void runParallel() {
+        CompletableFuture<String> future1
+                = CompletableFuture.supplyAsync(() -> "Hello9");
+        CompletableFuture<String> future2
+                = CompletableFuture.supplyAsync(() -> "Beautiful9");
+        CompletableFuture<String> future3
+                = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(2500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return "World9"; } );
+
+        CompletableFuture<Void> combinedFuture
+                = CompletableFuture.allOf(future1, future2, future3);
+
+        String combined = Stream.of(future1, future2, future3)
+                .map(CompletableFuture::join)
+                .collect(Collectors.joining(" "));
+
+        System.out.println("Sonuç: " + combined);
+    }
+
+
+
 }
