@@ -16,6 +16,9 @@ public class CompletableFutureCalisma {
         completableFutureCalisma.execute7();
         completableFutureCalisma.execute8();
         completableFutureCalisma.runParallel();
+        completableFutureCalisma.execute10();
+        completableFutureCalisma.execute11();
+        completableFutureCalisma.execute12();
     }
 
     private void execute1() {
@@ -181,5 +184,57 @@ public class CompletableFutureCalisma {
     }
 
 
+    private void execute10() {
+        String name = null;
+        CompletableFuture<String> completableFuture
+                =  CompletableFuture.supplyAsync(() -> {
+            if (name == null) {
+                throw new RuntimeException("Computation error!");
+            }
+            return "Hello, " + name;
+        }).handle((s, t) -> s != null ? s : "Hello, Stranger 10!");
+
+        try {
+            String result= completableFuture.get();
+            System.out.println("Sonuç: " + result);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void execute11() {
+        CompletableFuture<String> completableFuture = new CompletableFuture<>();
+
+        completableFuture.completeExceptionally(
+                new RuntimeException("Calculation failed!"));
+
+        try {
+            completableFuture.get(); // ExecutionException
+        } catch (InterruptedException e) {
+            System.out.println("InterruptedException Exception" +  e);
+        } catch (ExecutionException e) {
+            System.out.println("Execution Exception" +  e);
+        }
+    }
+
+    private void execute12() {
+        CompletableFuture<String> completableFuture
+                = CompletableFuture.supplyAsync(() -> "Hello12");
+
+        CompletableFuture<String> future = completableFuture
+                .thenApplyAsync(s -> s + " World12");
+
+        try {
+            String result= future.get();
+            System.out.println("Sonuç: " + result);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
