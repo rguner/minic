@@ -1,23 +1,22 @@
 package com.guner.java8calisma;
 
-import java.sql.ClientInfoStatus;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class OptinalCalisma {
+public class OptionalCalisma {
 
     public static void main(String[] args) {
-        OptinalCalisma optinalCalisma = new OptinalCalisma();
-        optinalCalisma.execute1();
-        optinalCalisma.execute2();
-        optinalCalisma.execute3();
-        optinalCalisma.execute4();
-        optinalCalisma.execute5();
-        optinalCalisma.execute6();
-        optinalCalisma.execute7();
-        optinalCalisma.execute8();
-        optinalCalisma.execute9();
+        OptionalCalisma optionalCalisma = new OptionalCalisma();
+        optionalCalisma.execute1();
+        optionalCalisma.execute2();
+        optionalCalisma.execute3();
+        optionalCalisma.execute4();
+        optionalCalisma.execute5();
+        optionalCalisma.execute6();
+        optionalCalisma.execute7();
+        optionalCalisma.execute8();
+        optionalCalisma.execute9();
     }
 
 
