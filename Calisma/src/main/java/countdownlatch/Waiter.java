@@ -1,6 +1,7 @@
 package countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class Waiter implements Runnable {
 
@@ -13,7 +14,7 @@ public class Waiter implements Runnable {
 	public void run() {
 		try {
 			latch.await();
-			// latch.await(1000, TimeUnit.SECONDS);
+			//latch.await(1, TimeUnit.SECONDS);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
