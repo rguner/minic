@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.guner</groupId>
-	<artifactId>calisma2</artifactId>
+	<artifactId>calisma</artifactId>
 	<version>0.1.0</version>
 
 	<dependencies>
