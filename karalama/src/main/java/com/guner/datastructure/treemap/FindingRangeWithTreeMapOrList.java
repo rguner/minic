@@ -1,5 +1,6 @@
 package com.guner.datastructure.treemap;
 
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -39,32 +40,41 @@ public class FindingRangeWithTreeMapOrList {
     private void withTreeMap() {
         NavigableMap<Integer, Range> map = getIntegerRangeNavigableMap();
 
-        // To do a lookup for some value in 'key'
-        int key = 50000;
+        int key = 90011;
         String result = null;
-        Map.Entry<Integer, Range> entry = map.floorEntry(key);
-        if (entry == null) {
-            // too small
-        } else if (key <= entry.getValue().upper) {
-            result = entry.getValue().value;
-        } else {
-            // too large or in a hole
+        long t1 = Instant.now().toEpochMilli();
+        for (int i = 0; i < 10000; i++) {
+            // To do a lookup for some value in 'key'
+            Map.Entry<Integer, Range> entry = map.floorEntry(key);
+            if (entry == null) {
+                // too small
+            } else if (key <= entry.getValue().upper) {
+                result = entry.getValue().value;
+            } else {
+                // too large or in a hole
+            }
         }
+        long t2 = Instant.now().toEpochMilli();
 
-        System.out.println("Sonuç: " + result);
+        System.out.println("Sonuç: " + result + " Süre : " + (t2 - t1));
     }
 
     private void withArrayList() {
         List<Range> list = getIntegerRangeNavigableArray();
 
-        // To do a lookup for some value in 'key'
-        int key = 50000;
+        int key = 90011;
         String result = null;
-        Optional<Range> optionalRange = list.stream().filter(r -> r.lower <= key && r.upper >= key).findAny();
-        if (optionalRange.isPresent()) {
-            result = optionalRange.get().getValue();
+        long t1 = Instant.now().toEpochMilli();
+        for (int i = 0; i < 10000; i++) {
+            // To do a lookup for some value in 'key'
+            Optional<Range> optionalRange = list.stream().filter(r -> r.lower <= key && r.upper >= key).findAny();
+            if (optionalRange.isPresent()) {
+                result = optionalRange.get().getValue();
+            }
         }
-        System.out.println("Sonuç: " + result);
+        long t2 = Instant.now().toEpochMilli();
+
+        System.out.println("Sonuç: " + result + " Süre : " + (t2 - t1));
     }
 
     private NavigableMap<Integer, Range> getIntegerRangeNavigableMap() {
