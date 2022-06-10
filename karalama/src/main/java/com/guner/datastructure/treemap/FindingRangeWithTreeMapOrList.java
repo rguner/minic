@@ -5,6 +5,10 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 public class FindingRangeWithTreeMapOrList {
+    private static final Integer RUN_COUNT = 10000;
+    private static final Integer RANGE_COUNT = 50000;
+    private static final Integer KEY = 490011;
+
     public static void main(String[] args) {
         FindingRangeWithTreeMapOrList findingRangeWithTreeMapOrList = new FindingRangeWithTreeMapOrList();
         findingRangeWithTreeMapOrList.withTreeMap();
@@ -40,15 +44,14 @@ public class FindingRangeWithTreeMapOrList {
     private void withTreeMap() {
         NavigableMap<Integer, Range> map = getIntegerRangeNavigableMap();
 
-        int key = 90011;
         String result = null;
         long t1 = Instant.now().toEpochMilli();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < RUN_COUNT; i++) {
             // To do a lookup for some value in 'key'
-            Map.Entry<Integer, Range> entry = map.floorEntry(key);
+            Map.Entry<Integer, Range> entry = map.floorEntry(KEY);
             if (entry == null) {
                 // too small
-            } else if (key <= entry.getValue().upper) {
+            } else if (KEY <= entry.getValue().upper) {
                 result = entry.getValue().value;
             } else {
                 // too large or in a hole
@@ -62,12 +65,11 @@ public class FindingRangeWithTreeMapOrList {
     private void withArrayList() {
         List<Range> list = getIntegerRangeNavigableArray();
 
-        int key = 90011;
         String result = null;
         long t1 = Instant.now().toEpochMilli();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < RUN_COUNT; i++) {
             // To do a lookup for some value in 'key'
-            Optional<Range> optionalRange = list.stream().filter(r -> r.lower <= key && r.upper >= key).findAny();
+            Optional<Range> optionalRange = list.stream().filter(r -> r.lower <= KEY && r.upper >= KEY).findAny();
             if (optionalRange.isPresent()) {
                 result = optionalRange.get().getValue();
             }
@@ -86,7 +88,7 @@ public class FindingRangeWithTreeMapOrList {
          */
         // 10, 15, "10"
         // 20, 25, "20"
-        IntStream.rangeClosed(1, 10000).forEach(i -> {
+        IntStream.rangeClosed(1, RANGE_COUNT).forEach(i -> {
             map.put(i * 10, new Range(i * 10, i * 10 + 5, "map" + String.valueOf(i * 10)));
         });
         return map;
@@ -99,7 +101,7 @@ public class FindingRangeWithTreeMapOrList {
         list.add(new Range(5, 10, "1"));      // 5..10    => 1
         list.add(new Range(100, 200, "2"));   // 100..200 => 2
          */
-        IntStream.rangeClosed(1, 10000).forEach(i -> {
+        IntStream.rangeClosed(1, RANGE_COUNT).forEach(i -> {
             list.add(new Range(i * 10, i * 10 + 5, "list" + String.valueOf(i * 10)));
         });
         return list;
