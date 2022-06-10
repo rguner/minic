@@ -18,6 +18,8 @@ public class TreeMapExample {
 		treemap.put("Key3", "Item3");
 		treemap.put("Key4", "Item4");
 		treemap.put("Key2", "Item5");
+		treemap.put("Key7", "Item7");
+		treemap.put("Key9", "Item9");
 
 		// Get a set of the entries
 		Set set = treemap.entrySet();
@@ -31,5 +33,15 @@ public class TreeMapExample {
 			System.out.print("Key is: " + me.getKey() + " & ");
 			System.out.println("Value is: " + me.getValue());
 		}
+
+		System.out.println("Intial Map: "+treemap);
+
+		System.out.println("Head Map: "+ treemap.headMap("Key3"));
+
+		System.out.println("Sub Map: "+treemap.subMap("Key2", "Key4"));
+
+		System.out.println("Tail Map: "+treemap.tailMap("Key2"));
+
+		System.out.println("Tail Map: "+treemap.tailMap("Key6"));
 	}
 }
