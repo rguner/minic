@@ -1,4 +1,4 @@
-package calisma4;
+package com.guner.datastructure.hashmap;
 
 import java.util.HashMap;
 import java.util.Iterator;
