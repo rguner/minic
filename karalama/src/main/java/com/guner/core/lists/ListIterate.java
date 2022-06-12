@@ -10,46 +10,51 @@ public class ListIterate {
 
     public static void main(String[] args) {
         ListIterate listIterate = new ListIterate();
-        listIterate.execute1();
+        //listIterate.execute1();
         //listIterate.execute2();
         listIterate.execute3();
-        listIterate.execute4();
+        //listIterate.execute4();
     }
 
+    /*
+    Exception in thread "main" java.util.ConcurrentModificationException
+    Sondan bir önceki elemandan sonra bir silme yaparsan hata oluşmaz, ama doğru da yapmaz, son elemanı görmez.
+    Apple/Strawberry farklı
+     */
     private void execute1() {
-        List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry");
+        List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry","Banana");
         List<String> fruitArrayList = fruitList.stream().collect(Collectors.toList());
 
         for (String fruit : fruitArrayList) {
             System.out.println("FOR-EACH An element in the list: " + fruit);
-            if ("Pear".equalsIgnoreCase(fruit)) {
-                fruitArrayList.remove(2);
+            if ("Apple".equalsIgnoreCase(fruit)) {
+            //if ("Strawberry".equalsIgnoreCase(fruit)) {
+                fruitArrayList.remove(3);
             }
         }
     }
 
+    /*
+    Exception in thread "main" java.util.ConcurrentModificationException
+    Sondan bir önceki elemandan sonra bir silme yaparsan hata oluşmaz, ama doğru da yapmaz, son elemanı görmez.
+    Apple/Strawberry farklı
+     */
     private void execute2() {
-        //List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry");
-        //List<String> fruitArrayList = fruitList.stream().collect(Collectors.toList());
-        List<String> fruitArrayList = new ArrayList<>();
-        fruitArrayList.add("Orange");
-        fruitArrayList.add("Apple");
-        fruitArrayList.add("Pear");
-        fruitArrayList.add("StrawBerry");
-        fruitArrayList.add("Banana");
+        List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry","Banana");
+        List<String> fruitArrayList = fruitList.stream().collect(Collectors.toList());
         Iterator<String> fruitIterator = fruitArrayList.iterator();
         while (fruitIterator.hasNext()) {
             String fruit = fruitIterator.next();
             System.out.println("ITERATOR An element in the list: " + fruit);
-            //if(fruit.contains("Apple")){
             if ("Apple".equalsIgnoreCase(fruit)) {
+            //if ("Strawberry".equalsIgnoreCase(fruit)) {
                 fruitArrayList.remove(fruit);
             }
         }
     }
 
     /**
-     * Pear'ı siliyoruz, ama listelemede index bozuluyor.
+     * Pear'ı siliyoruz, exception oluşmnaz, ama listelemede index bozuluyor.
      */
     private void execute3() {
         //List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry");
