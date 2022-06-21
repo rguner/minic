@@ -16,6 +16,8 @@ public class PriorityQueueCalisma {
         pQueue.add(10);
         pQueue.add(20);
         pQueue.add(15);
+        pQueue.add(5);
+        pQueue.add(1);
 
         System.out.print("Liste :  ");
         pQueue.stream().forEach(i-> {System.out.print(i + " ");});
@@ -31,5 +33,8 @@ public class PriorityQueueCalisma {
 
         // Printing the top element again
         System.out.println(pQueue.peek());
+
+        System.out.print("Liste :  ");
+        pQueue.stream().forEach(i-> {System.out.print(i + " ");});
     }
 }

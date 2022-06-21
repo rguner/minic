@@ -33,5 +33,8 @@ class LinkedBlockingQueueCalisma {
  
         // Printing the top element again
         System.out.println(ll.peek());
+
+        System.out.print("Liste :  ");
+        ll.stream().forEach(i-> {System.out.print(i + " ");});
     }
 }
