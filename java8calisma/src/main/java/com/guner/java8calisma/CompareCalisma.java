@@ -15,7 +15,8 @@ public class CompareCalisma {
                 new Human("Sarah", 10),
                 new Human("Jack", 12),
                 new Human("Ramazan", 46),
-                new Human("Ceyhan", 43)
+                new Human("Ceyhan", 43),
+                new Human("Ceylin", 55)
         );
 
     }
@@ -26,6 +27,7 @@ public class CompareCalisma {
         c.execute2();
         c.execute3();
         c.execute4();
+        c.execute5();
     }
 
 
@@ -55,6 +57,15 @@ public class CompareCalisma {
         humans.forEach(System.out::println);
     }
 
+    private void execute5() {
+        System.out.println("-----------------------------------------------------");
+        humans.sort((h1, h2) -> {
+            if (h1.getAge() > h2.getAge()) {
+                return 1;
+            } else return -1;
+        });
+        humans.forEach(System.out::println);
+    }
 
 
 }
