@@ -1,4 +1,4 @@
-package com.guner.core.sets;
+package com.guner.datastructure.sets;
 
 import java.util.*;
 

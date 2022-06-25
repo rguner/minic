@@ -1,4 +1,4 @@
-package com.guner.core.hashmaphashtable;
+package com.guner.datastructure.hashmaphashtable;
 
 import java.util.*;
 import java.lang.*;

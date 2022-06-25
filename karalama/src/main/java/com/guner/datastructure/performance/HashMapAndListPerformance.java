@@ -1,4 +1,4 @@
-package com.guner.core.performance;
+package com.guner.datastructure.performance;
 
 import java.util.Arrays;
 import java.util.HashMap;

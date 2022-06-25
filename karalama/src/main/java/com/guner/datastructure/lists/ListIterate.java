@@ -1,4 +1,4 @@
-package com.guner.core.lists;
+package com.guner.datastructure.lists;
 
 import java.util.ArrayList;
 import java.util.Arrays;
