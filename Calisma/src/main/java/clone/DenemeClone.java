@@ -2,7 +2,7 @@ package clone;
 
 import java.util.Objects;
 
-public class DenemeClone implements Cloneable{
+public class DenemeClone implements Cloneable {
 
     private String ad;
     private String soyad;
@@ -10,13 +10,13 @@ public class DenemeClone implements Cloneable{
 
     public static void main(String[] args) {
         DenemeClone denemeClone = new DenemeClone();
-        denemeClone.ad="remazan";
-        denemeClone.soyad="guner";
-        denemeClone.no=1300;
-        System.out.println(denemeClone + " " + denemeClone.hashCode());
+        denemeClone.ad = "remazan";
+        denemeClone.soyad = "guner";
+        denemeClone.no = 1300;
+        System.out.println(denemeClone + " " + denemeClone.log() + " " + denemeClone.hashCode());
         try {
-            Object denemeClone2 = denemeClone.clone();
-            System.out.println(denemeClone2 + " " + denemeClone2.hashCode());
+            DenemeClone denemeClone2 = (DenemeClone) denemeClone.clone();
+            System.out.println(denemeClone2 + " " + denemeClone2.log() + " " + denemeClone2.hashCode());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,8 +44,7 @@ public class DenemeClone implements Cloneable{
         return super.clone();
     }
 
-    @Override
-    public String toString() {
+    public String log() {
         return "DenemeClone{" +
                 "ad='" + ad + '\'' +
                 ", soyad='" + soyad + '\'' +
@@ -53,3 +52,4 @@ public class DenemeClone implements Cloneable{
                 '}';
     }
 }
+
