@@ -10,6 +10,7 @@ class SetsExample {
         SetsExample setsExample = new SetsExample();
         setsExample.hashSet1();
         setsExample.hashSetFromCollection();
+        setsExample.unionIntersection();
         setsExample.treeSet1();
         setsExample.treeSetFromCollection();
     }
@@ -129,6 +130,40 @@ class SetsExample {
 
             // Printing all elements inside objects
             System.out.println(iter.next());
+        }
+    }
+
+    private void unionIntersection() {
+        {
+            Set<Integer> aSet = new HashSet<Integer>();
+
+            aSet.addAll(Arrays.asList(
+                    new Integer[]{1, 3, 2, 4, 8, 9, 0}));
+
+            Set<Integer> bSet = new HashSet<Integer>();
+
+            bSet.addAll(Arrays.asList(
+                    new Integer[]{1, 3, 7, 5, 4, 0, 7, 5}));
+
+            System.out.println("unionIntersection ------------------------");
+
+            // To find union
+            Set<Integer> union = new HashSet<Integer>(aSet);
+            union.addAll(bSet);
+            System.out.print("Union of the two Set");
+            System.out.println(union);
+
+            // To find intersection
+            Set<Integer> intersection = new HashSet<Integer>(aSet);
+            intersection.retainAll(bSet);
+            System.out.print("Intersection of the two Set");
+            System.out.println(intersection);
+
+            // To find the symmetric difference
+            Set<Integer> difference = new HashSet<Integer>(aSet);
+            difference.removeAll(bSet);
+            System.out.print("Difference of the two Set");
+            System.out.println(difference);
         }
     }
 }
