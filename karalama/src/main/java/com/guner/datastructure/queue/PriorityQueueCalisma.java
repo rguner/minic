@@ -26,6 +26,7 @@ public class PriorityQueueCalisma {
         System.out.print("Liste Boyle yazılıyor ama queue poll sıralaması farklı:  ");
         pQueue.stream().forEach(i-> {System.out.print(i + " ");});
         System.out.println ("");
+        System.out.println (pQueue);
 
         // Printing the top element of
         // the PriorityQueue
@@ -43,5 +44,6 @@ public class PriorityQueueCalisma {
 
         System.out.print("Liste Boyle yazılıyor ama queue poll sıralaması farklı:  ");
         pQueue.stream().forEach(i-> {System.out.print(i + " ");});
+        System.out.println (pQueue);
     }
 }
