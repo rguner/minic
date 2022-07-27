@@ -31,6 +31,8 @@ class SetsExample {
         hset.add("geeks");
         hset.add("for");
         hset.add(null);
+        boolean isAdded = hset.add("geeks");
+        System.out.println("isAdded: " + isAdded);
 
         System.out.println("hashSet1 ------------------------");
 
