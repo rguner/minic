@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 
 public class LockMechanism {
 
-    Boolean authenticateUserExecuted;
+    private volatile Boolean authenticateUserExecuted;
 
     public static void main(String[] args) {
         LockMechanism lockMechanism = new LockMechanism();
@@ -12,14 +12,11 @@ public class LockMechanism {
     }
 
     private void execute1() {
-        ExecutorService executor = Executors.newFixedThreadPool(5);
+        ExecutorService executor = Executors.newFixedThreadPool(15);
 
-        // Runnable, return void, nothing, submit and run the task async
-        executor.submit(() -> lockCheckMethod());
-        executor.submit(() -> lockCheckMethod());
-        executor.submit(() -> lockCheckMethod());
-        executor.submit(() -> lockCheckMethod());
-        executor.submit(() -> lockCheckMethod());
+        for (int i = 0; i < 15; i++) {
+            executor.submit(this::lockCheckMethod);
+        }
         // shut down the executor manually
         executor.shutdown();
 
@@ -29,12 +26,11 @@ public class LockMechanism {
 
         if (authenticateUserExecuted == null) {
             synchronized (this) {
-                if (authenticateUserExecuted == null) // double check, yukarıddaki if syncronized blokta olmadıgı için
-                {
+                if (authenticateUserExecuted == null) { // double check, yukarıddaki if syncronized blokta olmadıgı için
                     authenticateUserExecuted = true;
                     // main logic
                     try {
-                        System.out.println("Process started...., threadId:  "+ Thread.currentThread().getId() );
+                        System.out.println("Process started...., threadId:  " + Thread.currentThread().getId());
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -47,7 +43,7 @@ public class LockMechanism {
         } else {
             System.out.println("authenticateUserExecuted nedeniyle gerceklestirilmedi2");
         }
-        System.out.println("lockCheckMethod finished, threadId : " + Thread.currentThread().getId() );
+        System.out.println("lockCheckMethod finished, threadId : " + Thread.currentThread().getId());
 
     }
 
