@@ -37,13 +37,13 @@ public class LockMechanism {
                     }
 
                 } else {
-                    System.out.println("authenticateUserExecuted nedeniyle gerceklestirilmedi");
+                    System.out.println("authenticateUserExecuted nedeniyle gerceklestirilmedi " +  + Thread.currentThread().getId());
                 }
             }
         } else {
-            System.out.println("authenticateUserExecuted nedeniyle gerceklestirilmedi2");
+            System.out.println("authenticateUserExecuted nedeniyle gerceklestirilmedi2 " +  + Thread.currentThread().getId() );
         }
-        System.out.println("lockCheckMethod finished, threadId : " + Thread.currentThread().getId());
+        //System.out.println("lockCheckMethod finished, threadId : " + Thread.currentThread().getId());
 
     }
 
