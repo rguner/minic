@@ -1,14 +1,19 @@
 package lock;
 
-import java.util.concurrent.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class LockMechanism {
+public class LockMechanism2 {
 
-    private volatile Boolean authenticateUserExecuted;
+    //private volatile Boolean authenticateUserExecuted;
+    private final Map<String, Boolean> authenticeUserExecuted = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-        LockMechanism lockMechanism = new LockMechanism();
-        lockMechanism.execute1();
+        LockMechanism2 lockMechanism2 = new LockMechanism2();
+        lockMechanism2.execute1();
     }
 
     private void execute1() {
@@ -24,10 +29,11 @@ public class LockMechanism {
 
     private void lockCheckMethod() {
 
-        if (authenticateUserExecuted == null) {
+        String msisdn="5322100234";
+        if (authenticeUserExecuted.get(msisdn) == null) {
             synchronized (this) {
-                if (authenticateUserExecuted == null) { // double check, yukarıddaki if syncronized blokta olmadıgı için
-                    authenticateUserExecuted = true;
+                if (authenticeUserExecuted.get(msisdn) == null) { // double check, yukarıddaki if syncronized blokta olmadıgı için
+                    authenticeUserExecuted.put(msisdn, true);
                     // main logic
                     try {
                         System.out.println("Process started...., threadId:  " + Thread.currentThread().getId());
