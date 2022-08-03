@@ -5,27 +5,25 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class LockMechanism3 {
+public class LockMechanism4 {
 
-    //private volatile Boolean authenticateUserExecuted;
+    private Boolean authenticateUserExecuted;
     private final Map<String, Object> authenticateUserLockMap = new ConcurrentHashMap<>();
-    private final Map<String, Boolean> authenticateUserExecutedMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-        LockMechanism3 lockMechanism3 = new LockMechanism3();
-        lockMechanism3.execute1();
+        LockMechanism4 lockMechanism4 = new LockMechanism4();
+        lockMechanism4.execute1();
     }
 
     private void execute1() {
         ExecutorService executor = Executors.newFixedThreadPool(20);
         String msisdn = "5322100234";
         authenticateUserLockMap.putIfAbsent(msisdn, new Object());
-        authenticateUserExecutedMap.putIfAbsent(msisdn, false);
+        authenticateUserExecuted = false;
 
         for (int i = 0; i < 20; i++) {
             executor.submit(this::lockCheckMethod);
         }
-
         executor.shutdown();
 
     }
@@ -33,17 +31,16 @@ public class LockMechanism3 {
     private void lockCheckMethod() {
 
         String msisdn = "5322100234";
+
         synchronized (authenticateUserLockMap.get(msisdn)) {
-            if (!authenticateUserExecutedMap.get(msisdn)) {
+            if (!authenticateUserExecuted) {
                 // main logic
                 try {
-                    authenticateUserExecutedMap.put(msisdn, true);
+                    authenticateUserExecuted = true;
                     System.out.println("Process started...., threadId:  " + Thread.currentThread().getId());
                     Thread.sleep(1000);
-                    //System.out.println("set edildi1");
-                    //System.out.println("set edildi2");
                 } catch (InterruptedException e) {
-                    authenticateUserExecutedMap.put(msisdn, false); // exception alınırsa authenticateUserInner tekrar çalışabilsin.
+                    authenticateUserExecuted = false; // exception alınırsa authenticateUserInner tekrar çalışabilsin.
                     e.printStackTrace();
                 }
             } else {

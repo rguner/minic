@@ -22,7 +22,7 @@ public class LockMechanism2 {
         for (int i = 0; i < 15; i++) {
             executor.submit(this::lockCheckMethod);
         }
-        // shut down the executor manually
+
         executor.shutdown();
 
     }
