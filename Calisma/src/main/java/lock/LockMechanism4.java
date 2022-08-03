@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 
 public class LockMechanism4 {
 
-    private Boolean authenticateUserExecuted;
+    private volatile Boolean authenticateUserExecuted;
     private final Map<String, Object> authenticateUserLockMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
@@ -48,6 +48,5 @@ public class LockMechanism4 {
             }
         }
     }
-    //System.out.println("lockCheckMethod finished, threadId : " + Thread.currentThread().getId());
 
 }
