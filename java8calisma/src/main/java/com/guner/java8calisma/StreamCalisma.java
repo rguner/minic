@@ -39,6 +39,10 @@ public class StreamCalisma {
         IntStream stream = IntStream.of(13, 1, 3, 5, 8, 1, 13, 2, 8);
         stream.sorted()
                 .forEach(System.out::println);
+
+        System.out.println("Integer List Sort");
+        List<Integer> integerList = Arrays.asList(5, 20, 0, 1, 2, 3, 1);
+        integerList.stream().sorted((a, b) -> a > b ? 1 : -1).forEach(System.out::println);
     }
 
     private void execute3() {
@@ -144,7 +148,11 @@ public class StreamCalisma {
         ints.stream()
                 .filter(Objects::nonNull) // null değilse
                 .filter(n -> n > 0) // pozitif sayı ise
-                .sorted((a,b)-> {if (a>b) return 1; else if (a<b) return -1; else return 0;})
+                .sorted((a, b) -> {
+                    if (a > b) return 1;
+                    else if (a < b) return -1;
+                    else return 0;
+                })
                 .forEach(System.out::println); // çıktıla
     }
 
