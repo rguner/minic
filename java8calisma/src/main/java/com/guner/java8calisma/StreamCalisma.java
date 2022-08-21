@@ -70,11 +70,15 @@ public class StreamCalisma {
 
         System.out.println("---------------------------------------------------------------------------------------");
 
-        List<String> names = Arrays.asList("Ali", "Veli", "Selami", "Veli", "Selami", "Can", "Hüseyin");
+        List<String> names = Arrays.asList("Ali", "Veli", "Selami", "Veli", "Selami", "Can", "Hüseyin", "Ali");
 
         List list = names.stream().collect(Collectors.toList());
+        System.out.print("List from Collector : " );
+        System.out.println(list);
 
         Set set = names.stream().collect(Collectors.toSet());
+        System.out.print("Set from Collector : " );
+        System.out.println(set);
 
         Long count = names.stream().collect(Collectors.counting());
 
@@ -83,7 +87,7 @@ public class StreamCalisma {
         System.out.println(collect);
 
         Map<Integer, List<String>> integerListMap = names.stream().collect(Collectors.groupingBy(name -> name.length()));
-
+        System.out.print("Map from Collector : " );
         System.out.println(integerListMap);
     }
 
@@ -94,7 +98,8 @@ public class StreamCalisma {
         List names = Arrays.asList("Ali", "Veli", "Selami", "Cem");
 
         Stream<String> stream = names.stream();
-        Stream upperStream = stream.map(name -> name.toUpperCase());
+        //Stream upperStream = stream.map(name -> name.toUpperCase()); // aşağıdaki ile aynı
+        Stream upperStream= stream.map(String::toUpperCase);
         upperStream.forEach(System.out::println);
         //List upperNames = (List) upperStream.collect(Collectors.toList());
         //upperNames.forEach(System.out::println);
