@@ -42,7 +42,10 @@ public class StreamCalisma {
 
         System.out.println("Integer List Sort");
         List<Integer> integerList = Arrays.asList(5, 20, 0, 1, 2, 3, 1);
-        integerList.stream().sorted((a, b) -> a > b ? 1 : -1).forEach(System.out::println);
+        integerList
+                .stream()
+                .sorted((a, b) -> a > b ? 1 : -1)
+                .forEach(System.out::println);
     }
 
     private void execute3() {
