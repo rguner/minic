@@ -25,6 +25,7 @@ public class StreamCalisma {
         s.execute10_1();
         s.execute11();
         s.execute12();
+        s.bicycleConstructor();
     }
 
     private void execute1() {
@@ -73,11 +74,11 @@ public class StreamCalisma {
         List<String> names = Arrays.asList("Ali", "Veli", "Selami", "Veli", "Selami", "Can", "Hüseyin", "Ali");
 
         List list = names.stream().collect(Collectors.toList());
-        System.out.print("List from Collector : " );
+        System.out.print("List from Collector : ");
         System.out.println(list);
 
         Set set = names.stream().collect(Collectors.toSet());
-        System.out.print("Set from Collector : " );
+        System.out.print("Set from Collector : ");
         System.out.println(set);
 
         Long count = names.stream().collect(Collectors.counting());
@@ -87,7 +88,7 @@ public class StreamCalisma {
         System.out.println(collect);
 
         Map<Integer, List<String>> integerListMap = names.stream().collect(Collectors.groupingBy(name -> name.length()));
-        System.out.print("Map from Collector : " );
+        System.out.print("Map from Collector : ");
         System.out.println(integerListMap);
     }
 
@@ -99,7 +100,7 @@ public class StreamCalisma {
 
         Stream<String> stream = names.stream();
         //Stream upperStream = stream.map(name -> name.toUpperCase()); // aşağıdaki ile aynı
-        Stream upperStream= stream.map(String::toUpperCase);
+        Stream upperStream = stream.map(String::toUpperCase);
         upperStream.forEach(System.out::println);
         //List upperNames = (List) upperStream.collect(Collectors.toList());
         //upperNames.forEach(System.out::println);
@@ -201,6 +202,29 @@ public class StreamCalisma {
 
         System.out.println(collect);
 
+    }
+
+    private void bicycleConstructor() {
+        List<String> bikeBrands = Arrays.asList("Giant", "Scott", "Trek", "GT");
+        Bicycle[] bicycleArray = bikeBrands.stream()
+                .map(Bicycle::new)
+                .toArray(Bicycle[]::new);
+        System.out.println(bicycleArray);
+        for (Bicycle bicycle : bicycleArray) {
+            System.out.println(bicycle.brand);
+        }
+
+    }
+
+    public class Bicycle {
+
+        private String brand;
+        private int frameSize;
+
+        public Bicycle(String brand) {
+            this.brand = brand;
+            this.frameSize = 0;
+        }
     }
 }
 
