@@ -1,7 +1,7 @@
 package com.guner.polymorphism;
 
 public class Employee {
-   private String name;
+   String name; // package-private
    private String address;
    private int number;
 

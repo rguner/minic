@@ -12,6 +12,7 @@ public class Salary extends Employee {
       System.out.println("Within mailCheck of Salary class ");
       System.out.println("Mailing check to " + getName()
       + " with salary " + salary);
+      name="ramazan";
    }
    
    public double getSalary() {
