@@ -33,6 +33,9 @@ public class StreamCalisma {
         IntStream stream = IntStream.of(1, 1, 2, 3, 5, 8, 13, 13, 8);
         stream.distinct()
                 .forEach(System.out::println);
+
+        // stream has already been operated upon or closed
+        // stream.forEach(System.out::println);
     }
 
     private void execute2() {
