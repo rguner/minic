@@ -11,8 +11,27 @@ public class FailFastMapExample {
 		cityCode.put("Delhi", "India");
 		cityCode.put("Moscow", "Russia");
 		cityCode.put("New York", "USA");
+		cityCode.put("Tokyo", "Japan");
 
+		// iterator ile silme
+		System.out.println("-------- Iterator silme --------");
+		Iterator iterator1 = cityCode.keySet().iterator();
 
+		while (iterator1.hasNext()) {
+			String country= cityCode.get(iterator1.next());
+			System.out.println(country);
+
+			// adding an element to Map
+			// exception will be thrown on next call
+			// of next() method.
+			if ("USA".equalsIgnoreCase(country)) {
+				iterator1.remove();
+				System.out.println("USA deleted");
+			}
+		}
+
+		// normal collection ile silme.
+		System.out.println("-------- Map item ekleme veya silme --------");
 		Iterator iterator = cityCode.keySet().iterator();
 
 		while (iterator.hasNext()) {
