@@ -228,6 +228,7 @@ public class StreamCalisma {
             this.brand = brand;
             this.frameSize = 0;
         }
+
     }
 }
 

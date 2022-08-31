@@ -12,8 +12,8 @@ public class ListIterate {
         ListIterate listIterate = new ListIterate();
         //listIterate.execute1();
         //listIterate.execute2();
-        listIterate.execute3();
-        //listIterate.execute4();
+        //listIterate.execute3();
+        listIterate.execute4();
     }
 
     /*
@@ -81,13 +81,16 @@ public class ListIterate {
         listOfBooks.add("Code Complete");
 
 
-      /*
+        /*
         for(String book: listOfBooks){
             if(book.contains("Code"));{
                 listOfBooks.remove(book);
             }
         }
-       */
+
+         */
+
+
         Iterator<String> bookIterator = listOfBooks.iterator();
         while (bookIterator.hasNext()) {
             String book = bookIterator.next();
