@@ -38,6 +38,9 @@ public class PriorityQueueCalisma {
         System.out.println(pQueue.poll());
         System.out.println(pQueue.poll());
         System.out.println(pQueue.poll());
+        //System.out.println(pQueue.poll());
+        //System.out.println(pQueue.poll());
+        //System.out.println(pQueue.poll());
 
         // Printing the top element again
         System.out.println(pQueue.peek());
