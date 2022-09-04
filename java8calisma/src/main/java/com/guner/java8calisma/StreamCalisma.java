@@ -3,6 +3,8 @@ package com.guner.java8calisma;
 import com.guner.java8calisma.model.EnumExampleType;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -84,6 +86,13 @@ public class StreamCalisma {
         System.out.print("Set from Collector : ");
         System.out.println(set);
 
+        AtomicInteger atomicInteger= new AtomicInteger(0);
+        Function<String, Integer> f1 = s -> atomicInteger.getAndIncrement();
+        Function<String, String> f2 = s -> s;
+        Map map = names.stream().collect(Collectors.toMap(f1, f2));
+        System.out.print("Map from Collector : ");
+        System.out.println(map);
+
         Long count = names.stream().collect(Collectors.counting());
 
         String collect = names.stream().collect(Collectors.joining(" - "));
@@ -91,7 +100,7 @@ public class StreamCalisma {
         System.out.println(collect);
 
         Map<Integer, List<String>> integerListMap = names.stream().collect(Collectors.groupingBy(name -> name.length()));
-        System.out.print("Map from Collector : ");
+        System.out.print("Length Map from Collector : ");
         System.out.println(integerListMap);
     }
 
