@@ -21,9 +21,7 @@ public class FailFastMapExample {
 			String country= cityCode.get(iterator1.next());
 			System.out.println(country);
 
-			// adding an element to Map
-			// exception will be thrown on next call
-			// of next() method.
+			// no exception occurs.
 			if ("USA".equalsIgnoreCase(country)) {
 				iterator1.remove();
 				System.out.println("USA deleted");
