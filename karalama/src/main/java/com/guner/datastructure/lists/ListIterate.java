@@ -1,9 +1,6 @@
 package com.guner.datastructure.lists;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ListIterate {
@@ -13,8 +10,10 @@ public class ListIterate {
         //listIterate.execute1();
         //listIterate.execute2();
         //listIterate.execute3();
-        listIterate.execute4();
+        //listIterate.execute4();
+        listIterate.sort();
     }
+
 
     /*
     Exception in thread "main" java.util.ConcurrentModificationException
@@ -22,13 +21,13 @@ public class ListIterate {
     Apple/Strawberry farklı
      */
     private void execute1() {
-        List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry","Banana");
+        List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry", "Banana");
         List<String> fruitArrayList = fruitList.stream().collect(Collectors.toList());
 
         for (String fruit : fruitArrayList) {
             System.out.println("FOR-EACH An element in the list: " + fruit);
             if ("Apple".equalsIgnoreCase(fruit)) {
-            //if ("Strawberry".equalsIgnoreCase(fruit)) {
+                //if ("Strawberry".equalsIgnoreCase(fruit)) {
                 fruitArrayList.remove(3);
             }
         }
@@ -40,14 +39,14 @@ public class ListIterate {
     Apple/Strawberry farklı
      */
     private void execute2() {
-        List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry","Banana");
+        List<String> fruitList = Arrays.asList("Orange", "Apple", "Pear", "Strawberry", "Banana");
         List<String> fruitArrayList = fruitList.stream().collect(Collectors.toList());
         Iterator<String> fruitIterator = fruitArrayList.iterator();
         while (fruitIterator.hasNext()) {
             String fruit = fruitIterator.next();
             System.out.println("ITERATOR An element in the list: " + fruit);
             if ("Apple".equalsIgnoreCase(fruit)) {
-            //if ("Strawberry".equalsIgnoreCase(fruit)) {
+                //if ("Strawberry".equalsIgnoreCase(fruit)) {
                 fruitArrayList.remove(fruit);
             }
         }
@@ -95,11 +94,31 @@ public class ListIterate {
         while (bookIterator.hasNext()) {
             String book = bookIterator.next();
             System.out.println("ITERATOR An element in the list: " + book);
-            if(book.contains("Code")){
+            if (book.contains("Code")) {
                 listOfBooks.remove(book);
             }
         }
 
         System.out.println(listOfBooks.size());
+    }
+
+
+    private void sort() {
+
+        List<String> listOfBooks = new ArrayList<>();
+        listOfBooks.add("Programming Pearls");
+        listOfBooks.add("Clean Code");
+        listOfBooks.add("Effective Java");
+        listOfBooks.add("Code Complete");
+        listOfBooks.add("Code Complete2");
+        listOfBooks.add("Code Complete3");
+
+        // bu metodlar sort yapar, mevcut listenin üstüne yazar.
+        // listOfBooks.sort((o1, o2) -> o1.compareTo(o2));
+        // listOfBooks.sort(Comparator.naturalOrder());
+        // listOfBooks.sort(String::compareTo);
+
+        listOfBooks = listOfBooks.stream().sorted(String::compareTo).collect(Collectors.toList());
+        System.out.println(listOfBooks);
     }
 }
