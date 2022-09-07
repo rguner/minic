@@ -44,5 +44,10 @@ class HashClasses
         for (Map.Entry m:hm.entrySet()) {
             System.out.println(m.getKey()+" "+m.getValue());
         }
+
+        System.out.println("Stream ile yazdırma 1:");
+        hm.entrySet().stream().forEach(e -> System.out.print(e.getKey() + ":" + e.getValue() + " | "));
+        System.out.println("\nForEach ile yazdırma");
+        hm.forEach((k, v ) -> System.out.print(k + ":" + v + " | "));
     }
 }
