@@ -1,6 +1,5 @@
-package com.guner;
+package com.guner.hashcode;
 
-import java.util.Objects;
 import java.util.Optional;
 
 public class OptionalKaralama {

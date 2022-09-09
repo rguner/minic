@@ -1,4 +1,4 @@
-package com.guner;
+package com.guner.hashcode;
 
 public class User {
     private long id;
@@ -15,8 +15,8 @@ public class User {
      */
 
 
-    @Override
-    public int hashCode() {
+    //@Override
+    public int hashCode2() {
         int hash = 7;
         hash = 31 * hash + (int) id;
         hash = 31 * hash + (name == null ? 0 : name.hashCode());

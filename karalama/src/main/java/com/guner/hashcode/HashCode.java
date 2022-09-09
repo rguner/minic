@@ -1,4 +1,4 @@
-package com.guner;
+package com.guner.hashcode;
 
 import java.util.Arrays;
 import java.util.List;

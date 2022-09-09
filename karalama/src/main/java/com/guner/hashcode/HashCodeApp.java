@@ -1,6 +1,5 @@
-package com.guner;
+package com.guner.hashcode;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -8,7 +7,7 @@ import java.util.Objects;
 /**
  * Hello world!
  */
-public class App {
+public class HashCodeApp {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         HashCode hashCode = new HashCode();
@@ -18,7 +17,7 @@ public class App {
         HashCode hashCode2 = new HashCode();
         hashCode2.getHashCode();
 
-        App app = new App();
+        HashCodeApp app = new HashCodeApp();
         app.equalsKaralama();
 
         app.optionalKaralama();
@@ -52,6 +51,7 @@ public class App {
 
 
         System.out.println("Objects Hash1 " + Objects.hash(user1));
+        System.out.println("Objects Hash2 " + Objects.hash(user2));
         System.out.println("Objects Hash1_2 " + Objects.hash(user1, user2));
 
     }
