@@ -1,11 +1,14 @@
 package com.guner.jfr;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.stream.IntStream;
 
 public class JfrDemo {
 
-    private static final int ITEM_COUNT= 10000;
+    private static final int ITEM_COUNT = 100_000;
 
     public static void main(String[] args) {
         JfrDemo jfrDemo = new JfrDemo();
@@ -13,17 +16,23 @@ public class JfrDemo {
     }
 
     private void process() {
-        Runnable rHashMap = () -> hashMap();
-        rHashMap.run();
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        while (true) {
 
-        Runnable rArrayList = () -> arrayList();
-        rArrayList.run();
+            Runnable rHashMap = () -> hashMap();
+            executorService.submit(rHashMap);
 
-        Runnable rLinkedHashSet = () -> linkedHashSet();
-        rLinkedHashSet.run();
+            Runnable rArrayList = () -> arrayList();
+            executorService.submit(rArrayList);
 
-        Runnable rTreeSet = () -> treeSet();
-        rTreeSet.run();
+            Runnable rLinkedHashSet = () -> linkedHashSet();
+            executorService.submit(rLinkedHashSet);
+
+            Runnable rTreeSet = () -> treeSet();
+            executorService.submit(rTreeSet);
+
+            sleep();
+        }
 
     }
 
@@ -36,10 +45,11 @@ public class JfrDemo {
         set.add("Denizli");
         set.add("Edirne");
 
-        IntStream.range(0,ITEM_COUNT).forEach(i -> set.add("TreeSetItem"+i));
+        IntStream.range(0, ITEM_COUNT).forEach(i -> set.add("TreeSetItem" + i));
 
-        System.out.println("TreeSet Floor : " + set.floor("TreeSetItem9900").toString());
+        System.out.println(Thread.currentThread().getName() + " TreeSet Floor : " + set.floor("TreeSetItem9900").toString());
     }
+
 
     private void linkedHashSet() {
         Set<String> linkedHashSet = new LinkedHashSet<>();
@@ -48,9 +58,10 @@ public class JfrDemo {
         linkedHashSet.add("Australia");
         linkedHashSet.add("South Africa");
 
-        IntStream.range(0,ITEM_COUNT).forEach(i -> linkedHashSet.add("LinkedHashSetItem"+i));
+        IntStream.range(0, ITEM_COUNT).forEach(i -> linkedHashSet.add("LinkedHashSetItem" + i));
 
-        System.out.println("linkedHashSet size : " + linkedHashSet.size());
+        System.out.println(Thread.currentThread().getName() + " linkedHashSet size : " + linkedHashSet.size());
+
     }
 
     private void arrayList() {
@@ -60,8 +71,8 @@ public class JfrDemo {
         list.add("Almanca");
         list.add("Fransızca");
 
-        IntStream.range(0,ITEM_COUNT).forEach(i -> list.add("ArrayListItem"+i));
-        System.out.println("ArrayList : " + list.get(100));
+        IntStream.range(0, ITEM_COUNT).forEach(i -> list.add("ArrayListItem" + i));
+        System.out.println(Thread.currentThread().getName() + " ArrayList : " + list.get(100));
     }
 
     private void hashMap() {
@@ -75,8 +86,16 @@ public class JfrDemo {
         hmap.put(1490, "Ömer Mete");
         hmap.put(1300, "Şevval");
 
-        IntStream.range(0,ITEM_COUNT).forEach(i -> hmap.put(i, "HashMapItem"+i));
+        IntStream.range(0, ITEM_COUNT).forEach(i -> hmap.put(i, "HashMapItem" + i));
 
-        System.out.println("HashMap : " + hmap.get(100));
+        System.out.println(Thread.currentThread().getName() + " HashMap : " + hmap.get(100));
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(20);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
