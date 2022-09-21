@@ -16,7 +16,7 @@ public class JfrDemo {
     }
 
     private void process() {
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
         while (true) {
 
             Runnable rHashMap = () -> hashMap();
@@ -31,9 +31,36 @@ public class JfrDemo {
             Runnable rTreeSet = () -> treeSet();
             executorService.submit(rTreeSet);
 
+            //Runnable rMath = () -> mathProcess();
+            //executorService.submit(rMath);
+
             sleep();
         }
 
+    }
+
+    private void mathProcess() {
+        Random rand = new Random();
+        String result = "";
+
+        for (int i = 0; i < ITEM_COUNT; i++) {
+            // Generate random integers in range 0 to 999
+            int randInt1 = rand.nextInt(1000);
+            int randInt2 = rand.nextInt(1000);
+
+            // Generate Random doubles
+            double randDouble1 = rand.nextDouble();
+            double randDouble2 = rand.nextDouble();
+
+            double floor = Math.floor(randDouble1);
+            double ceil = Math.ceil(randDouble1);
+            int maxInteger = Math.max(randInt1, randInt2);
+            double sin = Math.sin(randDouble1);
+            double cos = Math.cos(randDouble2);
+
+            result = "Sin : " + sin + ", Cos : " + cos + ", Ceil : " + ceil + ", Floor : " + floor + ", MaxInteger : " + maxInteger;
+        }
+        System.out.println(result);
     }
 
     private void treeSet() {
