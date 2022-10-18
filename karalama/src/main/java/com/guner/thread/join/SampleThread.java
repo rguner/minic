@@ -1,4 +1,4 @@
-package thread.join;
+package com.guner.thread.join;
 
 public class SampleThread extends Thread {
     public int processingCount = 0;
