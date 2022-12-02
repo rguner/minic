@@ -21,28 +21,33 @@ public class ExecutorWithSizeAndLimitedQueueDefinitionThreadPool {
         for (int i = 0; i < 100; i++) {
             executorService.submit(() -> {
                 Thread.sleep(2000);
-                System.out.println("Task1 " + Thread.currentThread().getName() + " Queue Size :" + blockingQueue.size());
+                logThreadInformation("Task1", executorService, blockingQueue);
                 return null;
             });
             executorService.submit(() -> {
                 Thread.sleep(2000);
-                System.out.println("Task2 " + Thread.currentThread().getName() + " Queue Size :" + blockingQueue.size());
+                logThreadInformation("Task2", executorService, blockingQueue);
                 return null;
             });
             executorService.submit(() -> {
                 Thread.sleep(2000);
-                System.out.println("Task3 " + Thread.currentThread().getName() + " Queue Size :" + blockingQueue.size());
+                logThreadInformation("Task3", executorService, blockingQueue);
                 return null;
             });
             executorService.submit(() -> {
                 Thread.sleep(12000);
-                System.out.println("Task4 " + Thread.currentThread().getName() + " Queue Size :" + blockingQueue.size());
+                logThreadInformation("Task4", executorService, blockingQueue);
                 return null;
             });
-            System.out.println("Queue Size :" +  blockingQueue.size());
+            System.out.println("Queue Size :" + blockingQueue.size());
         }
 
         shutdownAndAwaitTermination(executorService);
+    }
+
+    private static void logThreadInformation(String taskInformation, ExecutorService executor, BlockingQueue<Runnable> blockingQueue) {
+        System.out.println(taskInformation + " " + Thread.currentThread().getName() + " Queue Size :" + blockingQueue.size()
+                + " Active Thread Count : " + ((ThreadPoolExecutor) executor).getActiveCount());
     }
 
     public static void shutdownAndAwaitTermination(ExecutorService executorService) {
