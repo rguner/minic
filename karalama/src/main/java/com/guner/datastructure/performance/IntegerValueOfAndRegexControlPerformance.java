@@ -14,6 +14,7 @@ public class IntegerValueOfAndRegexControlPerformance {
 
     private final int PROCESS_COUNT = 800000;
     List<String> list = Arrays.asList("123456", "643333", "123", "12,2", "13_3", "122323XYZ");
+    //List<String> list = Arrays.asList(Integer.MAX_VALUE+"3");
 
     private void doItWithRegexCheck() {
         long t1 = System.currentTimeMillis();
