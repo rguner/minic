@@ -46,8 +46,19 @@ public class ExecutorWithSizeAndLimitedQueueDefinitionThreadPool {
     }
 
     private static void logThreadInformation(String taskInformation, ExecutorService executor, BlockingQueue<Runnable> blockingQueue) {
+        long duration = getActiveCountMeasureDuration((ThreadPoolExecutor) executor);
         System.out.println(taskInformation + " " + Thread.currentThread().getName() + " Queue Size :" + blockingQueue.size()
-                + " Active Thread Count : " + ((ThreadPoolExecutor) executor).getActiveCount());
+                + " Active Thread Count : " + ((ThreadPoolExecutor) executor).getActiveCount()
+                + " Duration " + duration);
+
+    }
+
+    private static long getActiveCountMeasureDuration(ThreadPoolExecutor executor) {
+        long t1 = System.currentTimeMillis();
+        for (int i = 0; i < 1; i++) {
+            int a = executor.getActiveCount();
+        }
+        return System.currentTimeMillis() - t1;
     }
 
     public static void shutdownAndAwaitTermination(ExecutorService executorService) {
