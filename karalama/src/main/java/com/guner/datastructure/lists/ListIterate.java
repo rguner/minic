@@ -12,6 +12,14 @@ public class ListIterate {
         //listIterate.execute3();
         //listIterate.execute4();
         listIterate.sort();
+        listIterate.sortIntegerList();
+    }
+
+    private void sortIntegerList() {
+        List<Integer> list = Arrays.asList(20,40,100,5,1,200);
+        //list.sort(Comparator.comparing(Integer::valueOf));
+        list.sort(Comparator.comparingInt(Integer::valueOf));
+        System.out.println(list);
     }
 
 

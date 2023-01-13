@@ -4,7 +4,7 @@ public class SampleThread extends Thread {
     public int processingCount = 0;
 
     public static void main(String[] args) {
-        Thread t2 = new SampleThread(1);
+        Thread t2 = new SampleThread(3);
         t2.start();
         System.out.println("Invoking join");
         try {
@@ -25,6 +25,7 @@ public class SampleThread extends Thread {
         System.out.println("Thread " + this.getName() + " started");
         while (processingCount > 0) {
             try {
+                System.out.println("Sleeping...");
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
                 System.out.println("Thread " + this.getName() + " interrupted");
