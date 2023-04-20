@@ -12,6 +12,7 @@ public class ConterRunner {
         threadB.start();
         threadC.start();
 
+
         try {
             threadA.join();
             threadB.join();
