@@ -21,7 +21,7 @@ public class CollectionRunner {
         System.out.printf("Total price : %d\n", totalPrice);
 
 
-        Collection<Room> roomCollection2 = new ArrayList(List.of(room1, room2)); // ArrayList
+        Collection<Room> roomCollection2 = new ArrayList<>(List.of(room1, room2)); // ArrayList
         roomCollection2.add(room3);
         int totalPrice2 = getTotalPrices(roomCollection2);
         System.out.printf("Total price : %d\n", totalPrice2);
