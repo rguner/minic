@@ -13,6 +13,7 @@ public class FailFastArrayListExample {
 		al.add(3);
 		al.add(4);
 		al.add(5);
+		al.add(0,0);
 
 
 		// If you remove an element via Iterator remove() method, exception will not be thrown.
