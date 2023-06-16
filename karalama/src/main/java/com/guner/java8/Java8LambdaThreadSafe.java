@@ -1,4 +1,4 @@
-package com.guner;
+package com.guner.java8;
 
 import java.util.stream.Stream;
 
