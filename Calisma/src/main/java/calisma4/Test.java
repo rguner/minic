@@ -9,7 +9,7 @@ class Test extends Thread {
 			System.out.println(".");
 		}
 
-		System.out.println("Thread terminated.");
+		System.out.println("Thread terminated..");
 	}
 
 	public static void main(String[] args) throws InterruptedException {
