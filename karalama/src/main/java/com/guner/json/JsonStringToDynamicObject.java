@@ -11,10 +11,70 @@ public class JsonStringToDynamicObject {
     public static void main(String[] args) {
         String jsonString = """
                 {
-                                    "id": 1,
-                                    "name": "John Doe",
-                                    "roles": ["admin", "user"]
-                                }
+                   "formId": "RNP000000242",
+                   "efbFlightID": "string",
+                   "formRevNo": "string",
+                   "departureIATA": "string",
+                   "submitBy": "string",
+                   "departureICAO": "string",
+                   "submitDate": "2024-12-20T06:22:46.611",
+                   "version": 1,
+                   "rnpFormContent": {
+                     "deviationInfo": {
+                       "ldevLimitExeedance": null,
+                       "ldevLimitExeedanceValue": null,
+                       "acPosition": "string",
+                       "vdevLimitExeedanceValue": null,
+                       "limitExeedance": true,
+                       "vdevLimitExeedance": null
+                     },
+                     "otherInfo": {
+                       "crewComments": "string",
+                       "autopilotDisconnection": true,
+                       "navigationDbErrors": "string",
+                       "tawsAlert": true,
+                       "tawsAlertType": [
+                         {
+                           "name": "string",
+                           "value": "string"
+                         }
+                       ],
+                       "pilotReport": "string"
+                     },
+                     "messageInfo": {
+                       "messageType": [
+                         {
+                           "name": "string",
+                           "value": "string"
+                         },
+                         {
+                           "name1": "string1",
+                           "value1": "string1"
+                         }
+                       ],
+                       "message": "string",
+                       "messageTriggered": true
+                     },
+                     "procedureInfo": {
+                       "date": "2024-12-20T06:22:46.611",
+                       "procedureType": "string",
+                       "procedureFlown": "string",
+                       "satisfactoryResult": "string",
+                       "cm2ID": "string",
+                       "cm1ID": "string"
+                     }
+                   },
+                   "aircraftType": "string",
+                   "flightNo": "string",
+                   "scheduledDepartureDate": "2024-12-20T09:43:36.611",
+                   "carrierCode": "string",
+                   "destinationIATA": "string",
+                   "id": "000aa4ce-258b-4348-bcf1-dd483ec02d31",
+                   "destinationICAO": "string",
+                   "efbFlightRevID": "string",
+                   "acRegistration": "string",
+                    "roles": ["admin", "user"]
+                }
                 """;
 
         ObjectMapper objectMapper = new ObjectMapper();

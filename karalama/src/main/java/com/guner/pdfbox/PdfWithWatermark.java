@@ -1,5 +1,6 @@
 package com.guner.pdfbox;
 
+import org.apache.pdfbox.io.IOUtils;
 import org.apache.pdfbox.pdmodel.*;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
@@ -9,6 +10,7 @@ import org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
 import org.apache.pdfbox.util.Matrix;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public class PdfWithWatermark {
 
@@ -25,6 +27,12 @@ public class PdfWithWatermark {
             PDPage contentPage = new PDPage(PDRectangle.A4);
             document.addPage(contentPage);
             addContentPageContent(document, contentPage);
+            PDPage contentPage2 = new PDPage(PDRectangle.A4);
+            document.addPage(contentPage2);
+            addContentPageContent(document, contentPage2);
+            PDPage contentPage3 = new PDPage(PDRectangle.A4);
+            document.addPage(contentPage3);
+            addContentPageContent(document, contentPage3);
 
             // Add Watermark to All Pages
             addWatermarkToAllPages(document, "CONFIDENTIAL");
@@ -83,6 +91,19 @@ public class PdfWithWatermark {
             contentStream.drawImage(image, imageX, imageY, imageWidth, imageHeight);
 
              */
+
+            //PDImageXObject image = PDImageXObject.createFromFile("checkbox-checked.png", document);
+
+            InputStream imageInputStream = PdfWithWatermark.class.getResourceAsStream("/checkbox-checked.png");
+            PDImageXObject image = PDImageXObject.createFromByteArray(document, IOUtils.toByteArray(imageInputStream), "checkbox-checked.png" /* optional, can be null */);
+            // Start a content stream to draw on the page
+
+                contentStream.drawImage(image, 50, 400, 10, 10);
+
+            PDImageXObject image2 = PDImageXObject.createFromFile("checkbox-unchecked.png", document);
+            // Start a content stream to draw on the page
+
+            contentStream.drawImage(image2, 50, 500, 10, 10);
 
             // Add Page Number
             contentStream.beginText();

@@ -2,12 +2,17 @@ package com.guner.pdfbox;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Paths;
 
+import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 
 /**
@@ -45,7 +50,16 @@ public final class EmbeddedFonts
             System.out.println("Current path is: " + dir);
             String resourcePath=getClass().getClassLoader().getResource("LiberationSans-Regular.ttf").toString();
             System.out.println("Resource Path:" + resourcePath);
-            PDType0Font font = PDType0Font.load(document, new File(dir + "LiberationSans-Regular.ttf"));
+
+            // it works.
+            //PDType0Font font = PDType0Font.load(document, new File(dir + "LiberationSans-Regular.ttf"));
+            PDType0Font font;
+            PDType0Font font2;
+            try (InputStream fontStream = EmbeddedFonts.class.getClassLoader().getResourceAsStream("LiberationSans-Regular.ttf");
+                 InputStream fontStream2 = EmbeddedFonts.class.getClassLoader().getResourceAsStream("LiberationSans-Bold.ttf")) {
+                font = PDType0Font.load(document, fontStream);
+                font2 = PDType0Font.load(document, fontStream2);
+            }
 
             try (PDPageContentStream stream = new PDPageContentStream(document, page))
             {
@@ -60,9 +74,15 @@ public final class EmbeddedFonts
                 stream.showText("Supports full Unicode text ☺");
                 stream.newLine();
 
-                stream.showText("English русский язык Tiếng Việt");
+                stream.showText("English русский язык Tiếng Việt");                stream.newLine();
+
+                stream.showText("Türkçe Karakter DenemesiİiIıÖöÇçÜüŞş");
                 stream.newLine();
 
+                //PDResources resources = page.getResources();
+                //PDFont font1 = resources.getFont(COSName.getPDFName("F2"));
+                //stream.setFont(font1, 20);
+                stream.setFont(font2, 12);
                 stream.showText("Türkçe Karakter DenemesiİiIıÖöÇçÜüŞş");
                 stream.newLine();
 
